@@ -57,20 +57,23 @@ The agent concludes the cause is "downstream of the click": the UK booking funne
 - **In the bidder's objective, UK clicks are the most valuable per click and per dollar of any
   destination** ($30 of search value per click, 72 per dollar in late September). They earn that whether or
   not anyone books: UK booking revenue per click is zero while the search value is unchanged.
-- **Before the switch the strategy was Maximise Conversions, and the `Booking` action is marked primary**
-  (round 3, B1). If that was the goal, the old bidder was rewarded for bookings. The new one is rewarded
-  about $60 for every UK search.
-- **So the mechanism that fits everything:** on Maximise Conversion Value with search value as the target,
-  the bidder looks for UK users and queries that produce many high-value searches. Within the same broad
-  and phrase keywords (654 of 1,188 UK keywords are broad), it can win different queries and different
-  users at the same price and position. Those who search the most need not be those who book: students
-  comparing fares, people checking prices over several days, travel agents. Searches per click on UK rose
-  from 0.44 to 0.52; long-haul and regional did not move.
-- **Why UK and not the others:** UK has by far the highest value per search ($59 to $65, against $48 long-haul
-  and $26 to $33 regional), so the pull towards searchers is strongest there. Elsewhere the search value is
-  lower and the bidder's choices happened to improve bookings.
+- **Correction (from the user): before the switch the bidder was also rewarded on flight searches, not
+  bookings.** It was Maximise Conversions on flight-search counts. So the switch did not move the
+  objective from bookings to searches; it moved it from "every search counts 1" to "every search counts
+  its route value". Bookings were never in the objective, before or after. An earlier version of this
+  section said otherwise and is withdrawn.
+- **What the switch did change is the weighting.** Under counts, a UK search was worth the same as any
+  other. Under value, a UK search is worth about $60, against $48 long-haul and $26 to $33 regional, so UK
+  searches weigh roughly twice as much.
+- **The evidence for a "chasing high-value searchers" mechanism inside the UK is thin.** If the bidder were
+  picking UK users whose searches carry more value, UK value per search should have risen. It did not:
+  $60.7 before, $63.3 in the switch weeks, $58.7 from 20 Sep. Searches per click rose a little (0.44 to 0.52).
+  Long-haul value per search did rise ($40 to $48), and long-haul bookings improved.
+- **What still stands:** the objective has never rewarded bookings, the UK is the highest-value traffic in
+  that objective, and the UK is the one group where the switch went with a total loss of bookings on
+  otherwise normal traffic. The mechanism linking those is not established.
 
-This is a hypothesis that fits all the evidence so far. It has not been tested directly.
+With the correction above, no bidding mechanism is established for the UK zero. The experiment in 5.3 is the way to find out whether the bidding is the cause at all, and the commercial question in 5.4 moves up in priority.
 
 ## 5. Tests that would confirm or reject it
 
@@ -81,7 +84,7 @@ This is a hypothesis that fits all the evidence so far. It has not been tested d
    per visit (event count, not visits with a search). Prediction: UK searches per visit up, booking per
    visit to zero.
 3. **The decisive test, an experiment:** take the UK+IE campaigns out of the VBB portfolio for two to three
-   weeks, back to the previous strategy (or a booking-based goal), keep everything else on VBB. If UK
+   weeks, back to the previous strategy (Maximise Conversions on flight searches), keep everything else on VBB. If UK
    bookings come back within days, the value signal is the cause. Cheaper and faster than more analysis.
 4. **The commercial question in parallel:** any change to PK-UK fares, availability, schedule or
    competitor capacity around 1 to 3 Sep.
