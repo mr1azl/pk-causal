@@ -386,3 +386,14 @@ needs checking directly.
    close the UK thread.
 4. Re-run 8.1 with the real cut list and the review's destination groups, so both sources use the
    same definitions.
+
+---
+
+## 9. Update from SA360 round 3 (see `PK_SA360_ROUND3.md`)
+
+- **8.3 seasonality:** tested on SA360 2025. No September cliff for PK UK+IE in 2025 (bookings per
+  click +132% from August to September 2025, -91% in 2026). The UK thread stands, with the caveat that
+  2025 UK traffic was a much smaller, cheaper programme.
+- **8.2 regional value failure:** withdrawn. Floodlight aggregated bookings overstate regional about 10
+  times against the Floodlight transaction ledger, and the ledger matches Adobe.
+- **8.5:** confirmed dead. Floodlight quantity is 1 on every booking row.
