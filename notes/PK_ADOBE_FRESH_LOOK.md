@@ -95,3 +95,88 @@ whose destination is GB, IE or a UK or Irish airport.
 - Revenue is SalesIncYQ, currency not confirmed. Ratios and comparisons within Adobe are unaffected.
 - Click date is the first day a v84 value appears in this window. Clicks before 1 May are
   credited to their first appearance.
+
+---
+
+## 6. Campaign type and keyword mix
+
+*Reproduce with `scripts/pk_keyword_mix.py`. Click date basis, PK Google non-brand, 13 Jun to 5 Oct.
+Every `Dest|City` campaign targets an airport code (LHR, JFK, PER); there are no metro-code campaigns
+(LON, NYC). The city-name vs airport-code split therefore shows up in the keywords, not the campaigns.*
+
+### 6.1 Campaign type
+
+Clicks per day, and bookings per 1,000 clicks in brackets:
+
+| Campaign type | 13 Jun-19 Aug | 20 Aug-1 Sep (cut) | 2-19 Sep (switch) | 20 Sep-5 Oct |
+|---|---:|---:|---:|---:|
+| Destination: country (`Dest\|Country`) | 321 (1.7) | 169 (1.4) | 25 (6.7) | 60 (5.2) |
+| Route: Pakistan to country (`O&D\|Country`) | 248 (1.4) | 78 (2.0) | 13 (0.0) | 104 (3.6) |
+| Destination: city/airport (`Dest\|City`) | 100 (3.5) | 170 (1.4) | 33 (8.4) | 108 (2.3) |
+| Route: airport to airport (`O&D\|Routes`) | 134 (3.7) | 202 (4.6) | 23 (9.9) | 157 (1.2) |
+| Generic, legacy exact | 17 (4.4) | 20 (0.0) | 20 (16.6) | 23 (2.7) |
+
+- **The 20 Aug cut was a cut to the country campaigns.**
+  - Destination-country and Pakistan-to-country clicks fell 47% and 69%.
+  - City and airport-route clicks rose 70% and 50%.
+  - So the cut removed the two lowest-converting types (1.4 to 1.7 bookings per 1,000 clicks) and moved
+    traffic to the two highest (3.5 to 3.7). That is why the cut fortnight looks efficient.
+- **After the switch, conversion by type reversed.**
+  - Country types now convert better: 3.6 to 5.2 per 1,000.
+  - Routes and cities convert worse. Airport-to-airport routes fell from 3.7 to 1.2: 3 bookings on
+    about 2,500 clicks, where the pre-switch rate predicts about 9.
+- **The generic legacy campaign is flat throughout** (17 to 23 clicks a day). It looks outside the VBB
+  portfolio, which needs confirming. If so, it is a small in-market control, and it shows no drop.
+
+### 6.2 Campaign type, UK+IE only
+
+| UK+IE campaign type | Bookings per 1,000 clicks, 13 Jun-1 Sep | Clicks after switch | Bookings after | Expected at old rate |
+|---|---:|---:|---:|---:|
+| Airport-to-airport routes (LHE-LHR, MUX-BHX...) | 7.4 to 10.9 | about 490 | 0 | about 4 |
+| City/airport (LHR, MAN, LGW, EDI...) | 9.4 | about 360 | 0 | about 3.4 |
+| Destination country (GB) | 2.2 to 8.5 | about 80 | 0 | under 1 |
+| Pakistan to country (PK-GB) | 5.8 to 6.4 | about 60 | 1 | about 0.4 |
+
+UK routes and UK cities were the best-converting non-brand segments in PK, at 7 to 11 bookings per
+1,000 clicks against about 2 for non-brand overall. They are the ones that went to zero. Each cell is
+borderline on its own (p about 0.02 to 0.03), but together they are clear.
+
+### 6.3 Keyword mix
+
+| Keyword feature | Click share 13 Jun-19 Aug | Click share 20 Sep-5 Oct | Bookings per 1,000 before | Bookings per 1,000 after |
+|---|---:|---:|---:|---:|
+| Destination as country name | 69% | 36% | 1.6 | 4.2 |
+| Destination as city name | 20% | 39% | 3.4 | 1.4 |
+| Destination as airport code (all phrase match) | 9% | 19% | 4.2 | 2.1 |
+| Origin named as "Pakistan" | 30% | 23% | 1.4 | 3.6 |
+| Origin as Pakistani city (Lahore, Karachi...) | 12% | 24% | 3.4 | 1.7 |
+| Premium cabin (first or business class) | 4% | 3% | 2.6 | 0 |
+| Price words (cheap, deals, fares) | 6% | 5% | 3.1 | 3.0 |
+
+- **The keyword mix moved from broad to specific,** from country names to city names, airport codes and
+  named Pakistani origins. Most of that shift happened at the 20 Aug cut, not at the switch.
+- **The keyword mix itself is not the problem.** The post-switch keyword mix, priced at each keyword's
+  pre-switch conversion, implies 2.07 to 2.18 bookings per 1,000 clicks, against 1.94 before. The bidder
+  is choosing keywords that used to convert at least as well.
+- **The loss is within the specific keywords.** City-name and airport-code keywords used to convert
+  best (3.4 to 4.2) and now convert at 1.4 to 2.1. Revenue per click is 13% below what the mix implies
+  ($1.83 against $2.10).
+- **Breadth recovered.** Distinct keywords with a click per day: 213 before, 70 in the switch fortnight,
+  211 since 20 Sep.
+- **UK keywords:** "united kingdom flights", "pakistan to united kingdom flights" and "flights to
+  united kingdom" fell from 8.5% of clicks to 0.6%. UK city keywords grew ("manchester flights" 0.1% to
+  1.3%, "karachi to london flights" 0.2% to 0.7%) but produced no bookings.
+
+### 6.4 What this adds
+
+1. **The bidder's choice of keywords and campaigns looks reasonable on paper.** Priced at pre-switch
+   performance, both the keyword mix and the campaign mix after the switch should convert slightly
+   better than before.
+2. **What broke is the conversion of the specific, high-intent traffic.** This covers route and city
+   keywords, above all to the UK. The bidder still buys these clicks, at 30% to 80% of the old volume,
+   but they stopped booking.
+3. **That points away from "wrong keywords" and towards which auctions or users the bidder now wins
+   within the same keywords.** With Maximise Conversion Value on search value, it can win queries on
+   the same keyword that are search-heavy and booking-light, for example users who search many dates.
+   Adobe cannot show the search term or the bid. The next step is the SA360 search-term report for UK
+   route and city campaigns, before vs after 2 Sep, with the VBB value per conversion.
