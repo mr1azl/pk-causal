@@ -97,7 +97,7 @@ docs/
     09_INDIA_SEARCH_TERMS.md     India query risks before launch
   agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
-  prompts/                     prompts given to the agents (data requests, India pre-launch)
+  prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)
 data/                          all data, see data/README.md
 scripts/                       analysis scripts, see scripts/README.md
