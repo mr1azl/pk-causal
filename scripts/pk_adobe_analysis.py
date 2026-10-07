@@ -21,6 +21,8 @@ UK = {"GB", "LHR", "MAN", "EDI", "LGW", "BHX", "LON", "GLA", "DUB", "IE", "NCL",
 
 def main(path: str) -> None:
     d = pd.read_parquet(path)
+    if "v84" not in d.columns:  # committed data/adobe file: hashed tracking ID instead of the raw one
+        d["v84"] = d["click_key"]
     d = d[d.parsed]
     d = d.join(d.groupby("v84").day.min().rename("click_day"), on="v84")
     pk = d[(d.cc == "PK") & (d.engine == "Google") & d.group.isin(["Brand", "Non-brand"])].copy()

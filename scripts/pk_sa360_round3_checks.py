@@ -1,11 +1,10 @@
 """Checks on the SA360 round 3 pull: seasonality per click, and the Floodlight ledger against Adobe.
 
-Usage: python scripts/pk_sa360_round3_checks.py <round3_dir> <pk_nb.parquet or v84.parquet>
+Usage: python scripts/pk_sa360_round3_checks.py data/sa360_round3 data/adobe/v84_parsed_2026-05-01_2026-10-05.parquet
 
-<round3_dir> is the agent's folder (data/clean/pk_nb_daily_YYYY.csv, pk_nb_traffic_YYYY.csv,
-data/raw/b2_booking_conversions.jsonl with order IDs already hashed).
+The first folder holds pk_nb_daily_YYYY.parquet, pk_nb_traffic_YYYY.parquet and b2_booking_ledger.parquet
+(the Floodlight QR_Booking transaction rows, no order IDs).
 """
-import json
 import os
 import sys
 
@@ -19,8 +18,9 @@ GROUPS = ["UK+IE", "long-haul", "regional"]
 def per_click(r3: str) -> pd.DataFrame:
     rows = []
     for year in ("2025", "2026"):
-        conv = pd.read_csv(os.path.join(r3, "data/clean", f"pk_nb_daily_{year}.csv"), parse_dates=["date"])
-        traffic = pd.read_csv(os.path.join(r3, "data/clean", f"pk_nb_traffic_{year}.csv"), parse_dates=["date"])
+        conv = pd.read_parquet(os.path.join(r3, f"pk_nb_daily_{year}.parquet"))
+        traffic = pd.read_parquet(os.path.join(r3, f"pk_nb_traffic_{year}.parquet"))
+        conv["date"], traffic["date"] = pd.to_datetime(conv.date), pd.to_datetime(traffic.date)
         conv["month"], traffic["month"] = conv.date.dt.month, traffic.date.dt.month
         t = traffic.groupby(["dest_group", "month"]).agg(cost=("cost", "sum"), clicks=("clicks", "sum"))
         for action in ("QR_Booking", "Booking", "Flight Search"):
@@ -36,11 +36,8 @@ def per_click(r3: str) -> pd.DataFrame:
 
 
 def ledger_vs_adobe(r3: str, adobe_path: str) -> None:
-    raw = [json.loads(line) for line in open(os.path.join(r3, "data/raw/b2_booking_conversions.jsonl"))]
-    sa = pd.DataFrame([{"campaign": r["campaign"]["name"],
-                        "day": r["conversion"]["conversionDateTime"][:10],
-                        "revenue": int(r["conversion"].get("conversionRevenueMicros", 0)) / 1e6} for r in raw])
-    sa["day"] = pd.to_datetime(sa.day)
+    sa = pd.read_parquet(os.path.join(r3, "b2_booking_ledger.parquet"))
+    sa["day"] = pd.to_datetime(sa.conversion_datetime.str[:10])
     d = pd.read_parquet(adobe_path)
     if "cc" in d.columns:
         d = d[d.parsed & (d.cc == "PK") & (d.engine == "Google") & (d.group == "Non-brand")]
