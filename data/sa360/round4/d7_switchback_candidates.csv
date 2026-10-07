@@ -1,0 +1,22 @@
+campaign_id,campaign_name,segment,dest_code,signal_alive_now,cost_13jun_19aug,cost_20sep_5oct,bookings_before,bookings_now,searches_before,searches_now,bookings_per_1k_searches_before,bookings_per_1k_searches_now,budget_lost_is_now,rank_lost_is_now
+11136349619,_PK-Generic-RMKT_Exact,none,,True,1592.19,837.41,12.0,2.0,2323.0,540.0,5.17,3.7,24.0,37.3
+22932501982,Google|PK|Dest|Country|XXX|SA|EN|MOD,regional,SA,True,2807.04,546.0,38.0,1.0,4799.0,299.0,7.92,3.34,74.8,0.0
+22922581806,Google|PK|O&D|Country|PK|US|EN|MOD,long-haul,US,True,1144.33,208.73,19.0,3.0,2089.0,245.0,9.1,12.24,37.0,0.0
+22932502018,Google|PK|Dest|Country|XXX|CA|EN|MOD,long-haul,CA,True,1088.04,186.41,10.0,3.0,1284.0,136.0,7.79,22.06,51.3,0.0
+22922581911,Google|PK|O&D|Country|PK|CA|EN|MOD,long-haul,CA,True,937.84,102.05,12.0,1.0,1391.0,131.0,8.63,7.63,39.3,0.0
+22928440217,Google|PK|O&D|Routes|LHE|JFK|EN|MOD,long-haul,JFK,True,262.81,83.92,15.0,2.0,435.0,65.0,34.48,30.77,31.2,0.0
+22932506374,Google|PK|O&D|Country|PK|DE|EN|MOD,long-haul,DE,True,509.98,60.99,8.0,1.0,1061.0,82.0,7.54,12.2,30.7,0.0
+22928437664,Google|PK|O&D|Country|PK|JP|EN|MOD,regional,JP,False,411.45,118.9,9.0,0,934.0,169.0,9.64,0.0,35.1,0.0
+22932507049,Google|PK|O&D|Country|PK|CN|EN|MOD,regional,CN,False,417.41,117.11,4.0,0,772.0,98.0,5.18,0.0,42.4,0.0
+22928433353,Google|PK|Dest|Country|XXX|US|EN|MOD,long-haul,US,False,869.95,116.03,16.0,0,1548.0,94.0,10.34,0.0,61.0,0.0
+22932508795,Google|PK|Dest|City|XXX|BCN|EN|MOD,long-haul,BCN,False,556.82,115.75,7.0,0,928.0,83.0,7.54,0.0,78.9,0.0
+22932506779,Google|PK|O&D|Country|PK|ID|EN|MOD,regional,ID,False,484.06,96.98,12.0,0,1051.0,152.0,11.42,0.0,37.4,0.0
+22922590005,Google|PK|Dest|City|XXX|PER|EN|PHR,long-haul,PER,False,388.42,85.47,5.0,0,890.0,87.0,5.62,0.0,64.5,0.0
+22932502060,Google|PK|Dest|Country|XXX|AZ|EN|MOD,regional,AZ,False,811.83,72.04,4.0,0,1555.0,43.0,2.57,0.0,63.8,0.0
+22922577786,Google|PK|Dest|Country|XXX|CN|EN|MOD,regional,CN,False,347.6,69.37,14.0,0,691.0,46.0,20.26,0.0,67.8,0.0
+22928429027,Google|PK|Dest|Country|XXX|ID|EN|MOD,regional,ID,False,1256.65,65.13,23.0,0,2718.0,33.0,8.46,0.0,57.1,0.0
+22922581170,Google|PK|O&D|Country|PK|IT|EN|MOD,long-haul,IT,False,541.95,65.05,7.0,0,1226.0,109.0,5.71,0.0,38.0,0.0
+22922583090,Google|PK|Dest|City|XXX|LGW|EN|MOD,UK+IE rest,LGW,False,145.46,62.29,6.0,0,351.0,60.0,17.09,0.0,58.8,0.0
+22922582055,Google|PK|O&D|Country|PK|AZ|EN|MOD,regional,AZ,False,469.29,53.82,4.0,0,875.0,71.0,4.57,0.0,38.0,0.0
+22922584002,Google|PK|O&D|Routes|LHE|IST|EN|MOD,regional,IST,False,58.17,51.09,11.0,0,178.0,59.0,61.8,0.0,39.8,0.0
+22922578011,Google|PK|Dest|Country|XXX|JP|EN|MOD,regional,JP,False,280.56,50.52,5.0,0,700.0,60.0,7.14,0.0,59.8,0.0

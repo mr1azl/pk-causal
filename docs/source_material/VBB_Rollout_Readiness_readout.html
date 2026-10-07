@@ -1,0 +1,311 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>VBB Rollout Readiness</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: single measured column; tables scroll in their own tracks; notes in a responsive grid. */
+:root{
+  color-scheme:light;
+  --ground:#f4f6f9; --surface:#fff; --surface-2:#eef1f6;
+  --ink:#0f141b; --ink-2:#4c5663; --ink-3:#77808d;
+  --line:#dde3ea; --line-2:#c8d1db; --accent:#2a78d6;
+  --ok:#1baf7a; --bad:#e34948; --warn:#eda100; --neutral:#6E6E6E;
+  --shadow:0 1px 2px rgba(15,20,27,.05),0 8px 24px -16px rgba(15,20,27,.18);
+  --font-sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#0f1216; --surface:#171b21; --surface-2:#1f242c;
+  --ink:#f1f4f8; --ink-2:#a7b1bd; --ink-3:#7c8695;
+  --line:#272d36; --line-2:#343c47; --accent:#3987e5;
+  --ok:#199e70; --bad:#e66767; --warn:#c98500; --neutral:#8b95a1;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.6);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0f1216; --surface:#171b21; --surface-2:#1f242c;
+  --ink:#f1f4f8; --ink-2:#a7b1bd; --ink-3:#7c8695;
+  --line:#272d36; --line-2:#343c47; --accent:#3987e5;
+  --ok:#199e70; --bad:#e66767; --warn:#c98500; --neutral:#8b95a1;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);margin:0;font-size:15px;line-height:1.55;
+  font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-block:40px 72px;padding-left:24px;padding-right:24px;
+  display:flex;flex-direction:column;gap:36px}
+.eyebrow{font-family:var(--font-mono);font-size:11.5px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+h1{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.022em;line-height:1.12;margin:0;
+  text-wrap:balance;max-width:24ch}
+.standfirst{font-size:17px;color:var(--ink-2);max-width:68ch;margin:0}
+header{display:flex;flex-direction:column;gap:13px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 26px;padding-top:4px;font-family:var(--font-mono);
+  font-size:12px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:3px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.verdict h2{margin:0;font-size:19px;font-weight:600;letter-spacing:-.012em}
+.verdict p{margin:0;color:var(--ink-2);max-width:76ch}
+section{display:flex;flex-direction:column;gap:15px;min-width:0}
+h2.sec{margin:0;font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3)}
+.sec-note{margin:-5px 0 0;font-size:14px;color:var(--ink-2);max-width:76ch}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:3px;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:11px 14px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+tbody td{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink-2)}
+td.mkt{font-family:var(--font-sans);color:var(--ink);white-space:normal}
+td.metric{font-family:var(--font-sans);color:var(--ink-2);text-align:left;font-size:12.5px}
+.sub{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);
+  font-weight:400;margin-top:3px;letter-spacing:.01em;white-space:normal}
+td.strong{font-weight:600;font-size:15px}
+td.ok.strong{color:var(--ok)} td.bad.strong{color:var(--bad)}
+td.flat{color:var(--ink-3)}
+.pos{color:var(--ok)} .neg{color:var(--bad)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.rule td{border-top:2px solid var(--line-2)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(310px,100%),1fr));gap:14px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:15px 17px;
+  display:flex;flex-direction:column;gap:6px;min-width:0}
+.note h3{margin:0;font-size:12.5px;font-weight:600;display:flex;align-items:baseline;gap:8px}
+.note h3 .bar{width:3px;height:13px;border-radius:1px;background:var(--ink-3);flex:none;position:relative;top:1px}
+.note.w h3 .bar{background:var(--warn)} .note.b h3 .bar{background:var(--bad)} .note.g h3 .bar{background:var(--ok)}
+.note p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.note code{font-family:var(--font-mono);font-size:12px;background:var(--surface-2);padding:1px 4px;border-radius:2px}
+.trend{display:flex;align-items:flex-end;gap:3px;height:28px;margin-top:2px}
+.trend i{display:block;width:7px;background:var(--accent);border-radius:1px 1px 0 0;opacity:.75}
+footer{border-top:1px solid var(--line);padding-top:18px;font-family:var(--font-mono);
+  font-size:11.5px;color:var(--ink-3);display:flex;flex-direction:column;gap:5px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Qatar Airways &middot; SA360 &middot; Value-based bidding rollout</div>
+    <h1>Two markets proven, a third turning, one still unresolved.</h1>
+    <p class="standfirst">Causal Impact and difference-in-differences across all six switched markets,
+      non-brand search against each market&rsquo;s own brand as the control. Germany now has ten weeks and
+      Canada five, and both are clearly positive. Saudi Arabia has turned positive once a budget decision
+      taken before the switch is separated out. Pakistan is recovering but still unresolved, and Singapore
+      and Malaysia remain too small to measure.</p>
+    <div class="meta">
+      <span><b>Source</b> Monitoring Report, 1 May &ndash; 5 Oct</span>
+      <span><b>Days</b> 158, no gaps, no duplicates</span>
+      <span><b>Control</b> each market&rsquo;s own brand</span>
+      <span><b>Updated</b> 7 Oct 2026</span>
+    </div>
+  </header>
+
+  <div class="verdict">
+    <h2>Germany and Canada together have produced $279,000 of incremental revenue</h2>
+    <p>Germany is at <b>+70% revenue</b> over 68 days and Canada at <b>+153%</b> over 34, both far beyond
+      chance. They ran on different value models, in different regions, with separate controls, which makes
+      this a replication rather than one market&rsquo;s good quarter. Every market without exception shows
+      the same mechanism underneath: fewer flight searches bought, at a higher price, converting better.
+      No market has yet produced a revenue result that argues against the change.</p>
+  </div>
+
+  <section>
+    <h2 class="sec">Results by market</h2>
+    <p class="sec-note">&ldquo;Needs &plusmn;x%&rdquo; is the smallest effect each market can resolve at 95%
+      confidence given its volume and window. An estimate smaller than that is not evidence, however large it
+      looks. Bold figures clear their own threshold. Saudi Arabia and Pakistan are shown twice, because a
+      budget cut on 20 August distorts their headline view.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Market</th><th>Post days</th><th>Revenue</th><th>Bookings</th><th>IBE visits</th></tr></thead>
+      <tbody>
+        <tr><td class="mkt"><b>Germany</b><span class="sub">DE &middot; ML &middot; switched 30 Jul</span></td><td>68</td>
+          <td class="ok strong">+70%<span class="sub">p&nbsp;0.000 &middot; DiD +47% &middot; needs &plusmn;86%</span></td>
+          <td class="ok strong">+36%<span class="sub">p&nbsp;0.002 &middot; DiD +16% &middot; needs &plusmn;68%</span></td>
+          <td class="bad strong">&minus;16%<span class="sub">p&nbsp;0.031 &middot; DiD &minus;19% &middot; needs &plusmn;13%</span></td></tr>
+        <tr><td class="mkt"><b>Canada</b><span class="sub">CA &middot; rule-based &middot; switched 02 Sep</span></td><td>34</td>
+          <td class="ok strong">+153%<span class="sub">p&nbsp;0.000 &middot; DiD +97% &middot; needs &plusmn;128%</span></td>
+          <td class="ok strong">+59%<span class="sub">p&nbsp;0.000 &middot; DiD +35% &middot; needs &plusmn;68%</span></td>
+          <td class="bad strong">&minus;36%<span class="sub">p&nbsp;0.001 &middot; DiD &minus;23% &middot; needs &plusmn;18%</span></td></tr>
+        <tr class="rule"><td class="mkt"><b>Saudi Arabia</b><span class="sub">SA &middot; ML &middot; switched 02 Sep &middot; all campaigns</span></td><td>34</td>
+          <td class="flat">&minus;35%<span class="sub">p&nbsp;0.148 &middot; DiD &minus;23% &middot; needs &plusmn;57%</span></td>
+          <td class="flat">+1%<span class="sub">p&nbsp;0.936 &middot; DiD &minus;1% &middot; needs &plusmn;73%</span></td>
+          <td class="flat">&minus;29%<span class="sub">p&nbsp;0.125 &middot; DiD &minus;37% &middot; needs &plusmn;44%</span></td></tr>
+        <tr><td class="mkt"><b>Saudi Arabia</b><span class="sub">SA &middot; 20 Aug cut campaigns excluded</span></td><td>34</td>
+          <td class="flat">+89%<span class="sub">p&nbsp;0.018 &middot; DiD +43% &middot; needs &plusmn;291%</span></td>
+          <td class="flat">+121%<span class="sub">p&nbsp;0.000 &middot; DiD +65% &middot; needs &plusmn;140%</span></td>
+          <td class="bad strong">&minus;31%<span class="sub">p&nbsp;0.004 &middot; DiD &minus;2% &middot; needs &plusmn;18%</span></td></tr>
+        <tr class="rule"><td class="mkt"><b>Pakistan</b><span class="sub">PK &middot; rule-based &middot; switched 02 Sep &middot; all campaigns</span></td><td>34</td>
+          <td class="flat">&minus;43%<span class="sub">p&nbsp;0.058 &middot; DiD +3% &middot; needs &plusmn;45%</span></td>
+          <td class="bad strong">&minus;50%<span class="sub">p&nbsp;0.008 &middot; DiD &minus;48% &middot; needs &plusmn;24%</span></td>
+          <td class="bad strong">&minus;56%<span class="sub">p&nbsp;0.001 &middot; DiD &minus;58% &middot; needs &plusmn;19%</span></td></tr>
+        <tr><td class="mkt"><b>Pakistan</b><span class="sub">PK &middot; 20 Aug cut campaigns excluded</span></td><td>34</td>
+          <td class="flat">&minus;22%<span class="sub">p&nbsp;0.585 &middot; DiD +14% &middot; needs &plusmn;250%</span></td>
+          <td class="flat">&minus;18%<span class="sub">p&nbsp;0.274 &middot; DiD &minus;17% &middot; needs &plusmn;44%</span></td>
+          <td class="bad strong">&minus;64%<span class="sub">p&nbsp;0.000 &middot; DiD &minus;40% &middot; needs &plusmn;11%</span></td></tr>
+        <tr class="rule"><td class="mkt"><b>Malaysia</b><span class="sub">MY &middot; ML &middot; switched 02 Sep</span></td><td>34</td>
+          <td class="flat">+24%<span class="sub">p&nbsp;0.467 &middot; DiD &minus;7% &middot; needs &plusmn;202%</span></td>
+          <td class="flat">+46%<span class="sub">p&nbsp;0.066 &middot; DiD +31% &middot; needs &plusmn;232%</span></td>
+          <td class="bad strong">&minus;33%<span class="sub">p&nbsp;0.001 &middot; DiD &minus;30% &middot; needs &plusmn;14%</span></td></tr>
+        <tr><td class="mkt"><b>Singapore</b><span class="sub">SG &middot; rule-based &middot; switched 30 Jul</span></td><td>68</td>
+          <td class="flat">+18%<span class="sub">p&nbsp;0.451 &middot; DiD &minus;18% &middot; needs &plusmn;140%</span></td>
+          <td class="flat">+10%<span class="sub">p&nbsp;0.578 &middot; DiD &minus;8% &middot; needs &plusmn;102%</span></td>
+          <td class="flat">not available<span class="sub">model did not converge</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 class="sec">The 20 August budget cut</h2>
+    <p class="sec-note">Thirteen days before the September switch, an account-wide decision removed most of
+      the non-brand budget in both GCC markets on the same day. It sits inside the pre-period of any model
+      fitted across it, so the headline Saudi and Pakistan figures above measure the cut as much as the
+      bidding. The excluded-campaign view is the one to read.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Market</th><th>Campaigns cut</th><th>Daily non-brand cost<br>10&ndash;19 Aug</th><th>21&ndash;31 Aug</th><th>Cut campaigns now<br>25 Sep&ndash;5 Oct</th><th>Untouched campaigns now</th></tr></thead>
+      <tbody>
+        <tr><td class="mkt"><b>Saudi Arabia</b></td><td>40</td><td>$171</td><td class="neg">$29 &nbsp;&minus;83%</td>
+          <td class="neg">$82<span class="sub">was $260, still 68% down</span></td>
+          <td class="pos">$278<span class="sub">was $203, +37%</span></td></tr>
+        <tr><td class="mkt"><b>Pakistan</b></td><td>52</td><td>$838</td><td class="neg">$169 &nbsp;&minus;80%</td>
+          <td class="neg">$130<span class="sub">was $783, still 83% down</span></td>
+          <td class="pos">$363<span class="sub">was $313, +16%</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="sec-note">Six weeks on, the cut campaigns have recovered only a third of their spend in Saudi
+      and a sixth in Pakistan, so this is largely permanent. Meanwhile the untouched campaigns grew. The
+      cause of the 20 August decision is still unconfirmed and is the open question that matters most for
+      these two markets.</p>
+  </section>
+
+  <section>
+    <h2 class="sec">The mechanism, in every market</h2>
+    <p class="sec-note">Pre-period from 13 June against the full post-period. Fewer flight searches bought,
+      at a higher cost per click, converting at a better rate. This pattern is present in all six markets
+      including the ones whose revenue cannot be resolved, which is the strongest sign the switch is doing
+      what it was designed to do.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Market</th><th>IBE visits / day</th><th>Cost per click</th><th>Booking rate</th><th>Avg booking value</th><th>Revenue per $</th></tr></thead>
+      <tbody>
+        <tr><td class="mkt"><b>Germany</b></td><td class="neg">330 &rarr; 291<span class="sub">&minus;12%</span></td><td>$0.25 &rarr; $0.56</td><td class="pos">1.05% &rarr; 1.60%<span class="sub">+52%</span></td><td class="pos">$874 &rarr; $1,207<span class="sub">+38%</span></td><td class="pos">12.2x &rarr; 13.3x</td></tr>
+        <tr><td class="mkt"><b>Canada</b></td><td class="neg">521 &rarr; 486<span class="sub">&minus;7%</span></td><td>$0.42 &rarr; $0.68</td><td class="pos">0.56% &rarr; 1.01%<span class="sub">+80%</span></td><td class="pos">$753 &rarr; $1,200<span class="sub">+59%</span></td><td class="pos">5.7x &rarr; 10.8x</td></tr>
+        <tr><td class="mkt"><b>Saudi Arabia</b><span class="sub">untouched campaigns</span></td><td class="neg">191 &rarr; 168<span class="sub">&minus;12%</span></td><td>$0.31 &rarr; $0.70</td><td class="pos">0.70% &rarr; 1.81%<span class="sub">+159%</span></td><td class="flat">$702 &rarr; $651<span class="sub">&minus;7%</span></td><td class="flat">&mdash;</td></tr>
+        <tr><td class="mkt"><b>Malaysia</b></td><td class="neg">205 &rarr; 152<span class="sub">&minus;26%</span></td><td>$0.43 &rarr; $0.71</td><td class="pos">0.66% &rarr; 1.20%<span class="sub">+83%</span></td><td class="flat">$722 &rarr; $681<span class="sub">&minus;6%</span></td><td class="pos">4.9x &rarr; 5.6x</td></tr>
+        <tr><td class="mkt"><b>Pakistan</b><span class="sub">untouched campaigns</span></td><td class="neg">387 &rarr; 200<span class="sub">&minus;48%</span></td><td>$0.34 &rarr; $0.65</td><td class="pos">1.06% &rarr; 1.50%<span class="sub">+42%</span></td><td class="neg">$437 &rarr; $222<span class="sub">&minus;49%</span></td><td class="neg">3.7x &rarr; 2.4x</td></tr>
+        <tr><td class="mkt"><b>Singapore</b></td><td class="flat">58 &rarr; 56<span class="sub">&minus;3%</span></td><td>$0.66 &rarr; $1.11</td><td class="pos">0.96% &rarr; 1.24%<span class="sub">+29%</span></td><td class="pos">$894 &rarr; $1,046<span class="sub">+17%</span></td><td class="flat">7.6x &rarr; 6.8x</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 class="sec">Trajectory</h2>
+    <p class="sec-note">Germany is still improving ten weeks in, which argues against reading the early gain
+      as a novelty effect. Pakistan&rsquo;s traffic collapse has reversed on its own as the bidding settled.</p>
+    <div class="notes">
+      <div class="note g">
+        <h3><span class="bar"></span>Germany is accelerating, not fading</h3>
+        <p>Revenue averaged <b>$31,595 a week</b> across the first four weeks after the switch and
+          <b>$45,602</b> across the most recent four, a 44% improvement. The strongest single week was
+          $71,334 on a 2.07% booking rate. Volume has not grown; the weekly IBE count is flat at around
+          2,040. The gain is entirely in what each search is worth.</p>
+        <div class="trend" aria-hidden="true"><i style="height:38%"></i><i style="height:61%"></i><i style="height:34%"></i><i style="height:56%"></i><i style="height:52%"></i><i style="height:100%"></i><i style="height:77%"></i><i style="height:42%"></i><i style="height:44%"></i><i style="height:55%"></i></div>
+      </div>
+      <div class="note g">
+        <h3><span class="bar"></span>Pakistan&rsquo;s traffic has come back</h3>
+        <p>Weekly IBE visits fell to <b>143</b> at the trough in mid-September and are back to <b>535</b>,
+          nearly four times the low. Cost per click peaked at $1.66 in the first week after the switch and
+          is now $0.28, below where it started. The bidding has settled. What has not yet recovered is
+          revenue, which is why Pakistan stays unresolved.</p>
+        <div class="trend" aria-hidden="true"><i style="height:100%"></i><i style="height:49%"></i><i style="height:21%"></i><i style="height:25%"></i><i style="height:47%"></i><i style="height:79%"></i><i style="height:80%"></i></div>
+      </div>
+      <div class="note g">
+        <h3><span class="bar"></span>Saudi Arabia has flipped</h3>
+        <p>At the previous read Saudi&rsquo;s untouched campaigns showed noise with intervals spanning 661%.
+          They now show <b>+89% revenue and +121% bookings</b>, both significant. The weekly booking rate
+          backs it up: 0.83% before the switch, then 1.45% to 2.38% every week since. The point estimates
+          are still inflated, but the direction is no longer ambiguous.</p>
+      </div>
+      <div class="note w">
+        <h3><span class="bar"></span>Canada&rsquo;s first week was its best</h3>
+        <p>Canada peaked at $54,583 in week one and has run $29,000 to $49,000 since. That is a learning
+          period settling rather than a decline, but it is why Canada&rsquo;s +153% sits above
+          Germany&rsquo;s +70% and why the Canada figure should be expected to come down as the window
+          lengthens.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Read before quoting any of this</h2>
+    <div class="notes">
+      <div class="note b">
+        <h3><span class="bar"></span>Withdrawn: Pakistan&rsquo;s revenue loss</h3>
+        <p>An earlier read put Pakistan at &minus;52% revenue, the only significant loss in the programme.
+          That model&rsquo;s pre-period spanned the 20 August budget cut. Corrected, Pakistan is
+          &minus;22% with an interval from &minus;61% to +290% and a cross-check of +14%. Not decidable.
+          The loss was a budget decision, not the bidding.</p>
+      </div>
+      <div class="note b">
+        <h3><span class="bar"></span>Withdrawn: the route-level findings</h3>
+        <p>A per-market analysis joined campaign names to the route value table. The tag values the route
+          the user searched, not the route named in the campaign: a single ISB&ndash;LGW campaign carried six
+          different per-search values from $0.50 to $84.08. That join was invalid and everything built on it
+          has been dropped. Nothing on this page depends on it.</p>
+      </div>
+      <div class="note b">
+        <h3><span class="bar"></span>Withdrawn: the Pakistan value correction</h3>
+        <p>Pakistan&rsquo;s flight-search value looked 7 to 11 times overstated, and a 7x reduction was
+          nearly actioned. It was benchmarked against Floodlight revenue while the model is built from
+          Adobe. Against Adobe, Pakistan sits at <b>0.91x</b> and Germany at <b>1.29x</b>, so Germany is the
+          overstated market. Adobe revenue per ticket is $272 in Germany against $278 in Pakistan.</p>
+      </div>
+      <div class="note w">
+        <h3><span class="bar"></span>Two revenue systems disagree</h3>
+        <p>Floodlight captures roughly 40% of Germany&rsquo;s Adobe revenue and roughly 16% of
+          Pakistan&rsquo;s. Everything on this page is measured on Floodlight, consistently on both sides of
+          every comparison, so the relative results hold. But Pakistan&rsquo;s absolute revenue series is a
+          narrow slice of the market, which is part of why it is so hard to resolve.</p>
+      </div>
+      <div class="note w">
+        <h3><span class="bar"></span>Singapore cannot be measured</h3>
+        <p>Singapore produces <b>0.69 bookings a day</b>, 47 in the entire 68-day post-period. One of its
+          three models failed to converge, returning an interval in the hundreds of trillions. No amount of
+          additional weeks fixes this. If Singapore needs an answer it has to come from pooling with other
+          small markets, not from measuring it alone.</p>
+      </div>
+      <div class="note w">
+        <h3><span class="bar"></span>Germany lost a day on 30 September</h3>
+        <p>Non-brand recorded 276 clicks against a typical 900, cost of $212 against $450, and no bookings,
+          while brand and Performance Max ran normally. It looks like a serving or budget interruption. One
+          day in 68, no effect on the result, but it is the visible dip at the right-hand end of the
+          Germany chart.</p>
+      </div>
+      <div class="note">
+        <h3><span class="bar"></span>Switch dates are taken as given</h3>
+        <p><code>Campaign bid strategy</code> in this report is not historical: every VBB portfolio shows
+          spend back to early May, long before any market switched. It identifies which campaigns are
+          treated; it cannot date the change. The 30 July and 2 September dates come from the team, not
+          from the data.</p>
+      </div>
+      <div class="note">
+        <h3><span class="bar"></span>The control is imperfect</h3>
+        <p>Brand predicts non-brand&rsquo;s daily movement poorly, with pre-period correlations between
+          0.02 and 0.46. That is why the intervals stay wide and the minimum detectable effects stay large.
+          The difference-in-differences cross-check uses no model at all, so where the two agree the result
+          does not depend on modelling choices.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Method: Bayesian structural time series (local level plus regression on the control and day of
+      week), fitted on the pre-period by maximum likelihood, counterfactual from the filter run forward with
+      the treated series hidden, parameter uncertainty from a stationary block bootstrap. Difference-in-differences
+      on ratio of totals shown alongside as an independent cross-check.</span>
+    <span>Pre-period starts 13 June in every market. Post-period runs from each market&rsquo;s switch date to
+      5 October. Germany and Singapore switched 30 July; Canada, Malaysia, Saudi Arabia and Pakistan on
+      2 September.</span>
+    <span>Source data pulled 6 October 2026: 1,019,416 campaign-day rows across 158 days, validated for
+      missing days, duplicates and reporting lag before use.</span>
+  </footer>
+</div>
+
+</body></html>

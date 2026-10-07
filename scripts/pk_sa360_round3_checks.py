@@ -1,6 +1,6 @@
 """Checks on the SA360 round 3 pull: seasonality per click, and the Floodlight ledger against Adobe.
 
-Usage: python scripts/pk_sa360_round3_checks.py data/sa360_round3 data/adobe/v84_parsed_2026-05-01_2026-10-05.parquet
+Usage: python scripts/pk_sa360_round3_checks.py data/sa360/round3 data/adobe/v84_parsed_2026-05-01_2026-10-05.parquet
 
 The first folder holds pk_nb_daily_YYYY.parquet, pk_nb_traffic_YYYY.parquet and b2_booking_ledger.parquet
 (the Floodlight QR_Booking transaction rows, no order IDs).

@@ -1,0 +1,9 @@
+bucket,period,keywords_with_impressions,cost,clicks,cpc,impr_share,top_share,abs_top_share,click_share,budget_lost,rank_lost
+GB country (cut 20 Aug),13 Jun-19 Aug,13,28463.89,20152,1.4125,81.42,75.55,55.54,49.16,8.94,9.64
+GB country (cut 20 Aug),20 Aug-1 Sep,13,689.08,1297,0.5313,65.36,57.6,16.26,24.38,17.94,16.69
+GB country (cut 20 Aug),2-19 Sep,9,470.09,214,2.1967,11.63,11.1,10.01,10.06,88.37,0.0
+GB country (cut 20 Aug),20 Sep-5 Oct,6,68.6,110,0.6237,41.34,36.27,12.31,12.2,58.66,0.0
+UK+IE rest,13 Jun-19 Aug,219,3833.63,9568,0.4007,68.81,62.92,19.22,28.93,7.85,23.34
+UK+IE rest,20 Aug-1 Sep,168,804.01,2069,0.3886,68.48,61.41,18.69,24.94,7.28,24.24
+UK+IE rest,2-19 Sep,107,877.35,402,2.1825,12.63,12.24,10.74,10.38,87.23,0.29
+UK+IE rest,20 Sep-5 Oct,143,804.18,1958,0.4107,50.24,43.06,13.35,14.42,49.76,0.0

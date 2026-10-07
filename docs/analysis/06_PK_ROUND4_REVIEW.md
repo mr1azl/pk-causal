@@ -1,0 +1,129 @@
+# PK: review of SA360 round 4, and where the cause now points
+
+*7 Oct 2026. Agent output in `docs/agent_findings/sa360_round4/` (FINDINGS.md, LOG.md). Value check in
+`scripts/pk_value_per_search.py` on the round 3 SA360 tables.*
+
+## 1. What round 4 settles (accepted)
+
+| Candidate cause | Round 4 result | Verdict |
+|---|---|---|
+| Clicks now come from outside Pakistan | UK+IE rest out-of-country share 14% before, 32% in the switch weeks, **8% from 20 Sep**. The same spike and reversion in long-haul and regional | Ruled out |
+| Device mix | Mobile share 89% to 84%, the same drift in every group; UK `QR_Booking` is zero on every device | Ruled out |
+| Campaign edits | Only the bid strategy (2 and 3 Sep) and 72 already-dead ad groups paused on 25 Sep. No keyword, negative, match type, location, audience or bid-modifier change since May to July 2026 | Ruled out |
+| Location setting | All 485 active campaigns PRESENCE_OR_INTEREST on Pakistan; UK identical to the rest | Ruled out (current values only) |
+
+Caveat the agent states and that stands: `last_modified_time` shows only the latest edit per object, and
+settings are current values, not history.
+
+## 2. The cleanest test is the late period
+
+From 20 Sep to 5 Oct the UK+IE campaigns the cut did not touch had, against before the switch:
+
+- clicks 122 a day (SA360), against 141 (13 Jun-19 Aug) and 159 (cut fortnight);
+- cost per click 0.41, against 0.40 and 0.39;
+- absolute-top position on won impressions 27%, against 28%;
+- out-of-country share 8%, against 14%; the same devices; the same 1,188 keywords.
+
+At the pre-switch rate (about 2.2 to 3.4 bookings per 1,000 clicks on Adobe), about 4 to 7 bookings were
+expected. Adobe recorded 0 (p about 0.01 to 0.001). Every observable property of the traffic is back to
+normal except the outcome.
+
+## 3. Where I disagree with the agent's conclusion
+
+The agent concludes the cause is "downstream of the click": the UK booking funnel, or its measurement.
+
+- **Measurement is already ruled out.** Adobe (eVar84 on the booking hit) and Floodlight (`QR_Booking`
+  transaction rows) are independent tags, and they agree row by row: 49 of 89 bookings are identical
+  on day, campaign and revenue, and both hold the same single UK row (18 Sep, from a 27 Aug click). A
+  UK-only break in both systems at once is very unlikely. The row-by-row comparison the agent proposes
+  is the one done in round 3.
+- **A funnel or fare change is still possible but is a coincidence of timing.** UK bookings by click week
+  were 6, 2, 2, 9 in August and 1, 0, 0, 0, 1, 0 from 31 Aug. An external event would have to start within a
+  day or two of the switch. Worth one question to the commercial team, not the leading hypothesis.
+
+## 4. What the bidder sees: UK is its best traffic
+
+`QR_FlightSearch_VBB` value per search and per click, from SA360:
+
+| Group | Period | Searches per click | Value per search | Search value per click | Search value per $ | Booking revenue per click |
+|---|---|---:|---:|---:|---:|---:|
+| UK+IE | 13 Jun-19 Aug | 0.44 | $60.7 | $26.7 | 24.5 | $5.43 |
+| | 20 Aug-1 Sep | 0.52 | $65.1 | $33.8 | 76.3 | $6.32 |
+| | 2-19 Sep | 0.47 | $63.3 | $29.5 | 13.5 | **$0** |
+| | 20 Sep-5 Oct | 0.52 | $58.7 | $30.4 | **72.0** | **$0** |
+| Long-haul | 20 Sep-5 Oct | 0.44 | $48.4 | $21.3 | 46.6 | $3.15 |
+| Regional | 20 Sep-5 Oct | 0.35 | $26.0 | $9.2 | 27.4 | $0.84 |
+
+- **In the bidder's objective, UK clicks are the most valuable per click and per dollar of any
+  destination** ($30 of search value per click, 72 per dollar in late September). They earn that whether or
+  not anyone books: UK booking revenue per click is zero while the search value is unchanged.
+- **Correction (from the user): before the switch the bidder was also rewarded on flight searches, not
+  bookings.** It was Maximise Conversions on flight-search counts. So the switch did not move the
+  objective from bookings to searches; it moved it from "every search counts 1" to "every search counts
+  its route value". Bookings were never in the objective, before or after. An earlier version of this
+  section said otherwise and is withdrawn.
+- **What the switch did change is the weighting.** Under counts, a UK search was worth the same as any
+  other. Under value, a UK search is worth about $60, against $48 long-haul and $26 to $33 regional, so UK
+  searches weigh roughly twice as much.
+- **The evidence for a "chasing high-value searchers" mechanism inside the UK is thin.** If the bidder were
+  picking UK users whose searches carry more value, UK value per search should have risen. It did not:
+  $60.7 before, $63.3 in the switch weeks, $58.7 from 20 Sep. Searches per click rose a little (0.44 to 0.52).
+  Long-haul value per search did rise ($40 to $48), and long-haul bookings improved.
+- **What still stands:** the objective has never rewarded bookings, the UK is the highest-value traffic in
+  that objective, and the UK is the one group where the switch went with a total loss of bookings on
+  otherwise normal traffic. The mechanism linking those is not established.
+
+With the correction above, no bidding mechanism is established for the UK zero. The experiment in 5.3 is the way to find out whether the bidding is the cause at all, and the commercial question in 5.4 moves up in priority.
+
+## 5. Tests that would confirm or reject it
+
+1. **Search terms for the UK campaigns, 1 Aug to 5 Oct, from the SA360 UI** (the API has none). Prediction:
+   after 2 Sep the matched queries shift towards research-type queries (price, dates, "cheap", airport or
+   city names without travel intent, reverse direction) within the same keywords.
+2. **Searches per visit on Adobe, UK vs the rest, before and after.** Needs the count of flight searches
+   per visit (event count, not visits with a search). Prediction: UK searches per visit up, booking per
+   visit to zero.
+3. **The decisive test, an experiment:** take the UK+IE campaigns out of the VBB portfolio for two to three
+   weeks, back to the previous strategy (Maximise Conversions on flight searches), keep everything else on VBB. If UK
+   bookings come back within days, the value signal is the cause. Cheaper and faster than more analysis.
+4. **The commercial question in parallel:** any change to PK-UK fares, availability, schedule or
+   competitor capacity around 1 to 3 Sep.
+
+---
+
+## 6. D4 weekly keywords: broad vs phrase (added after the correction)
+
+`scripts/pk_d4_match_type.py` on `data/sa360/round4/d4_weekly_keywords.parquet`. Bookings here are
+`QR_Booking` all_conversions (attributed, about 3.5x the ledger), so only the comparisons matter.
+
+| UK+IE | 1 Jun-16 Aug | 17-30 Aug | 31 Aug-20 Sep | 21 Sep-5 Oct |
+|---|---:|---:|---:|---:|
+| Broad, bookings per 1k clicks | 6.25 | 6.97 | 2.01 | **0.00** |
+| Phrase, bookings per 1k clicks | 6.52 | 2.01 | **0.00** | **0.00** |
+| Broad share of clicks | 88% | 87% | 85% | 78% |
+
+- **Both match types collapse.** Phrase match (no broad expansion) goes to zero as fast as broad, and broad
+  loses share rather than gaining it. "Broad match drifting into new queries under VBB" is not supported.
+- Long-haul and regional keep converting on both match types after the switch.
+
+## 7. Google Flight Search (GFS): a test of the external explanation
+
+GFS is Google Flights partner data: QR's price position, visibility and selection on each route, by
+user country, independent of paid search. It is the first source that can test the commercial
+explanation (fares, availability, competitors) directly. Queries in `sql/gfs_pk_uk.sql`:
+
+1. QR price competitiveness on PK-origin routes, weekly, UK+IE vs other, Jun 2025 to Oct 2026.
+2. QR shopping behaviour: rank, best flights, selection rate when shown, same split.
+3. Per PK-UK route, before vs from 2 Sep, 2026 and 2025.
+4. Other partners on PK-UK routes, weekly, if the tables hold their rows.
+
+How to read it:
+
+- **QR's PK-UK price position or selection rate drops sharply around 1 to 3 Sep 2026, and not on other
+  PK routes or in Sep 2025:** the cause is commercial (fare, inventory, competitor), and the bidding
+  timing is a coincidence.
+- **A competitor appears or jumps on PK-UK in early September:** same conclusion, with a name.
+- **Nothing moves on PK-UK in GFS:** the external explanation weakens and the bidding experiment is the
+  remaining test.
+- **GFS demand weight for PK users on UK routes falls in Sep 2026 but not Sep 2025:** a real demand drop,
+  which would also explain fewer bookings, though not the full zero on normal traffic.

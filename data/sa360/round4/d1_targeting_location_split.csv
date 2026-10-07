@@ -1,0 +1,21 @@
+segment,period,clicks_inside_targeted_location,clicks_outside_targeted_location,pct_outside
+GB country (cut 20 Aug),13 Jun-19 Aug,11747,8405,41.71
+GB country (cut 20 Aug),20 Aug-1 Sep,649,646,49.88
+GB country (cut 20 Aug),2-19 Sep,86,128,59.81
+GB country (cut 20 Aug),20 Sep-5 Oct,60,50,45.45
+UK+IE rest,13 Jun-19 Aug,4619,4949,51.72
+UK+IE rest,20 Aug-1 Sep,1031,1038,50.17
+UK+IE rest,2-19 Sep,180,222,55.22
+UK+IE rest,20 Sep-5 Oct,1214,744,38.0
+long-haul,13 Jun-19 Aug,42696,20511,32.45
+long-haul,20 Aug-1 Sep,4818,2464,33.84
+long-haul,2-19 Sep,1040,718,40.84
+long-haul,20 Sep-5 Oct,5367,2908,35.14
+regional,13 Jun-19 Aug,62587,18487,22.8
+regional,20 Aug-1 Sep,11012,3111,22.03
+regional,2-19 Sep,2572,1295,33.49
+regional,20 Sep-5 Oct,7037,2781,28.33
+none,13 Jun-19 Aug,3512,0,0.0
+none,20 Aug-1 Sep,800,0,0.0
+none,2-19 Sep,1123,0,0.0
+none,20 Sep-5 Oct,1141,0,0.0

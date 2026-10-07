@@ -1,0 +1,9 @@
+segment,period,cost,clicks,cpc,impressions,impr_share,top_share,abs_top_share,click_share,budget_lost,rank_lost,impr_share_clamped_pct_of_impressions,top_share_clamped_pct_of_impressions,abs_top_share_clamped_pct_of_impressions,click_share_clamped_pct_of_impressions,budget_lost_clamped_pct_of_impressions,rank_lost_clamped_pct_of_impressions
+UK+IE,13 Jun-19 Aug,32297.51,29720,1.0867,219493,77.56,71.6,44.38,44.69,7.49,14.95,0.0,0.0,0.0,0.0,0.0,0.0
+UK+IE,20 Aug-1 Sep,1493.09,3366,0.4436,33101,67.83,60.62,18.6,26.04,10.46,21.71,0.0,0.0,0.0,0.0,0.0,0.0
+UK+IE,2-19 Sep,1347.44,616,2.1874,4292,27.31,24.92,15.03,14.27,71.98,0.71,1.8,0.0,0.0,0.0,1.8,0.0
+UK+IE,20 Sep-5 Oct,872.78,2068,0.422,19763,55.24,47.55,14.96,15.09,44.76,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+everything else,13 Jun-19 Aug,31850.54,147793,0.2155,1207204,56.17,47.19,18.73,22.33,11.4,32.43,0.0,0.0,0.0,0.0,0.0,0.0
+everything else,20 Aug-1 Sep,4526.97,22205,0.2039,218303,47.65,38.99,14.46,17.56,13.33,39.02,0.0,0.0,0.0,0.0,0.0,0.0
+everything else,2-19 Sep,8574.82,6748,1.2707,49806,23.13,18.96,11.47,14.1,58.02,18.85,1.0,0.0,0.0,0.0,1.0,0.0
+everything else,20 Sep-5 Oct,7915.81,19234,0.4116,148916,52.99,44.46,18.21,16.35,42.9,4.1,0.0,0.0,0.0,0.0,0.0,0.0
