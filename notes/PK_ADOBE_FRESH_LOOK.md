@@ -11,12 +11,17 @@ whose destination is GB, IE or a UK or Irish airport.
 
 ## Headline
 
-**On Adobe, VBB in PK did not fail across the board. It failed on one destination: the UK.**
+> **Revised after review (section 7).** Section 2 below folded the 20 Aug cut fortnight into the
+> "before" period, so its GB country result mixes the cut with the switch. The headline holds on the
+> campaigns the cut did not touch, and is sharper as a conversion story: see section 7.
 
-- Non-brand bookings to everywhere except the UK and Ireland are back at their pre-cut level, on far fewer
-  clicks.
-- UK+IE non-brand went from about 0.7 bookings a day to 1 booking in 34 days. UK+IE was 31% of PK
-  non-brand revenue from 13 Jun to 19 Aug and 63% during the budget-cut fortnight.
+**On Adobe, VBB in PK did not fail across the board. It failed on one destination: the UK, and as a
+conversion failure, not a traffic one.**
+
+- On campaigns the 20 Aug cut did not touch, UK+IE and the rest lost about the same share of clicks
+  at the switch (61% and 65%).
+- The UK+IE booking rate went from 0.92% of search visits in the cut fortnight to zero (0 bookings in
+  34 days, about 6 expected). The rest went from 0.14% to 0.41%.
 - The UK accounts for essentially all of the non-brand revenue PK has lost since the switch.
 
 ## 1. PK by click date, per day
@@ -37,6 +42,10 @@ whose destination is GB, IE or a UK or Irish airport.
 
 ## 2. UK+IE by campaign, 13 Jun-1 Sep vs 2 Sep-5 Oct
 
+> **Superseded by section 7.** This table folds the 20 Aug cut fortnight into "before". The GB country
+> campaigns were the largest items in the 20 Aug cut, so their drop here is mostly the cut, not the
+> switch.
+
 | Destination | Clicks a day before | Clicks a day after | Bookings before (81 days) | Bookings after (34 days) |
 |---|---:|---:|---:|---:|
 | GB (country campaigns) | 68.9 | 3.0 | 20 | 0 |
@@ -48,9 +57,10 @@ whose destination is GB, IE or a UK or Irish airport.
 | DUB | 3.3 | 1.0 | 7 | 0 |
 | IE | 2.8 | 1.2 | 2 | 1 |
 
-- **Two separate failures.**
-  - The GB country campaigns were almost switched off: clicks fell 96%. This matches the
-    earlier SA360 finding that UK country spend fell from $258 to $15 a day.
+- **Two separate failures** *(withdrawn, see section 7)*.
+  - The GB country campaigns were almost switched off: clicks fell 96%. *Wrong attribution: their
+    spend fell 88% on 20 Aug ($418 to $53 a day for the two campaigns). In Adobe their clicks halved
+    on 20 Aug and went to near zero at the switch, so both events contributed.*
   - The UK city and route campaigns kept 30% to 80% of their clicks but stopped converting.
 - **Significance.**
   - After the switch, UK+IE campaigns received about 990 clicks. At the pre-switch rate of about
@@ -64,17 +74,18 @@ whose destination is GB, IE or a UK or Irish airport.
 
 1. **Zero-revenue bookings are a Floodlight artefact.** Adobe has 0 bookings with zero revenue out of
    4,870 PK bookings. The 68% figure comes from the `Bookings (FL)` column, not from the site.
-2. **PK non-brand is much smaller in Adobe than in Floodlight.** Adobe shows about 1.8 bookings a day before the
-   switch, Floodlight about 9.5. eVar84 is overwritten by later clicks, so a non-brand click followed
-   by a brand click is credited to brand. Neither source is wrong, but the two must not be mixed.
+2. **PK non-brand is much smaller in Adobe than in Floodlight, on bookings.** Adobe shows about 1.8 bookings a
+   day before the switch, Floodlight about 9.5. *The eVar84 overwrite explanation given here is
+   withdrawn (section 7): in September Adobe revenue matches Floodlight while bookings are 0.3x, which
+   points to the two systems counting bookings differently.*
 3. **"The bidder chases a value signal that does not track revenue" is too broad.** A destination-mix
    test (each period's search mix priced at pre-period revenue per search) gives a slightly higher
    implied value after the switch: $2.07 to $2.11 per search, against $1.84 to $1.87 before. Outside the UK the
    reallocation looks sound. The problem is specific to the UK.
 4. **Revised leading cause:** the VBB value for PK-to-UK searches is too low. Either fallback values
    ($0.50) hit UK routes, or the UK ONDs are mis-priced in the value table. So the bidder dropped
-   the GB country campaigns and outbid itself out of the UK queries that convert. This hypothesis
-   is testable and narrow.
+   the GB country campaigns and outbid itself out of the UK queries that convert. *Revised again in
+   section 7: a low value alone predicts fewer UK clicks converting better, not worse.*
 
 ## 4. Checks this points to
 
@@ -180,3 +191,94 @@ borderline on its own (p about 0.02 to 0.03), but together they are clear.
    the same keyword that are search-heavy and booking-light, for example users who search many dates.
    Adobe cannot show the search term or the bid. The next step is the SA360 search-term report for UK
    route and city campaigns, before vs after 2 Sep, with the VBB value per conversion.
+
+---
+
+## 7. Review and corrections
+
+*A second review checked this note against the SA360 cost data and the 20 Aug cut list. Each point
+below was re-checked on the Adobe data with `scripts/pk_cut_adjusted.py`.*
+
+### 7.1 The GB country campaigns were cut on 20 Aug, not at the switch (accepted)
+
+- `Dest|Country|GB` and `O&D|Country|PK-GB` were the top two campaigns in the cut list. Their SA360 spend:
+  $320.6 + $97.9 a day before 20 Aug, $38.8 + $14.2 in the cut fortnight, $13.0 + $2.9 after the
+  switch. They were 88% of PK's UK-destination spend.
+- In Adobe their clicks halved on 20 Aug (about 85 to about 40 a day) and went to near zero at the switch.
+  So the cut started it and the switch finished it, but section 2's "96%, a switch failure" was wrong.
+- The cut list used in 7.2 is inferred from Adobe: campaigns whose clicks fell 60% or more between
+  10-19 Aug and 21-31 Aug (72 campaigns), plus the two GB country campaigns, whose clicks only
+  halved. It should be replaced with the actual list when available.
+
+### 7.2 On campaigns the cut did not touch, the UK result holds
+
+Adobe, PK Google non-brand, click date, per day:
+
+| Segment | Period | Clicks | Search visits | Bookings | Booking rate (per search visit) |
+|---|---|---:|---:|---:|---:|
+| UK+IE, not cut | 13 Jun-19 Aug | 36.8 | 38.6 | 0.31 | 0.80% |
+| | 20 Aug-1 Sep | 55.5 | 58.2 | 0.54 | 0.92% |
+| | 2 Sep-5 Oct | 21.7 | 22.9 | **0.00** | **0.00%** |
+| Everything else, not cut | 13 Jun-19 Aug | 306.6 | 318.2 | 0.50 | 0.16% |
+| | 20 Aug-1 Sep | 478.7 | 495.3 | 0.69 | 0.14% |
+| | 2 Sep-5 Oct | 167.3 | 174.0 | 0.71 | 0.41% |
+
+- The non-cut UK campaigns (UK city and UK airport-to-airport route campaigns) were unaffected on 20 Aug
+  and lost all their bookings at the switch: 28 bookings in the 81 days before, 0 in the 34 days
+  after. At the pre-switch rate per search visit, about 6.4 were expected.
+- This matches the review's SA360/Floodlight figures (UK not cut: 0.92 to 0.15 bookings a day;
+  everything else 2.15 to 2.85). The two sources agree on the direction and the timing.
+
+### 7.3 A conversion story, not a traffic story (accepted)
+
+- Clicks from the cut fortnight to after the switch: UK+IE -61%, everything else -65%. Almost the same.
+- Booking rate: UK+IE 0.92% to 0%, everything else 0.14% to 0.41%. On Floodlight the review finds
+  1.50% to 0.56% for the UK and 1.13% to 1.65% for the rest.
+- Buying fewer clicks usually lifts conversion, because the better queries stay. The rest of PK did
+  exactly that. The UK did the opposite. That is the finding to lead with.
+
+### 7.4 The cause hypothesis, revised (accepted)
+
+- A low or fallback VBB value for UK searches predicts that the bidder buys fewer UK clicks, keeps the
+  better ones, and converts them at least as well. Relative cost per click fits (UK CPC +85% vs +230%
+  elsewhere, per SA360), but conversion going to zero does not.
+- Something changed in **which** UK queries or users are bought within the same campaigns and
+  keywords. Section 6 points the same way: the keyword mix should have converted better, but the
+  route and city keywords stopped converting.
+- Working hypothesis: on Maximise Conversion Value with search value as the objective, the bidder wins
+  UK auctions that produce many searches but few bookings, for example users who search many dates.
+  Bids rising while clicks fall would confirm it.
+
+### 7.5 The eVar84 overwrite explanation does not fit (accepted, replaced)
+
+- In September, Adobe PK non-brand revenue is about 1.0x Floodlight, while bookings are about 0.3x.
+  Attribution loss would lower both.
+- Average booking value is about $954 in Adobe against about $300 in Floodlight (3.2x). In Germany
+  the gap is 1.24x.
+- One hypothesis to check, not yet a finding: Floodlight may count tickets (passengers) for PK
+  bookings, while Adobe `event27` counts orders. Adobe revenue per ticket in PK is about $278, close
+  to the Floodlight average booking value. Large family parties on PK-UK routes would make the gap
+  bigger in PK than in Germany. Check the booking activity's counting method and what `event27`
+  counts before any of this goes in a report.
+
+### 7.6 Statistical weight (accepted)
+
+- The UK was singled out after looking at the data, across several destination groupings, so a single
+  p of 0.02 overstates the evidence.
+- The real support is corroboration:
+  - the non-cut UK campaigns show the drop independently of the cut;
+  - Adobe and Floodlight agree on the timing;
+  - the booking rate moves opposite to the rest of the market.
+- On the non-cut campaigns, 0 against about 6.4 expected gives p about 0.002, but it should be quoted
+  after the corroboration, not instead of it.
+
+### 7.7 Next checks, updated
+
+1. **The non-cut UK campaigns around 2 Sep:** daily max CPC or average CPC, impression share, top
+   impression share and budget-lost / rank-lost share, from 20 Aug to 5 Oct. Bids up while clicks
+   fall means the bidder outbid itself into a narrower, worse-converting slice of UK demand.
+2. **SA360 search terms for the non-cut UK campaigns,** before vs after 2 Sep, with VBB value per
+   conversion. This answers which UK queries were bought before and which are bought now.
+3. VBB value distribution for UK-destination searches (fallback share, zero share, median), as before.
+4. Booking counting: Floodlight booking activity counting method and `event27` definition (7.5).
+5. Replace the inferred cut list with the actual 20 Aug list and re-run 7.2.
