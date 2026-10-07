@@ -88,3 +88,42 @@ With the correction above, no bidding mechanism is established for the UK zero. 
    bookings come back within days, the value signal is the cause. Cheaper and faster than more analysis.
 4. **The commercial question in parallel:** any change to PK-UK fares, availability, schedule or
    competitor capacity around 1 to 3 Sep.
+
+---
+
+## 6. D4 weekly keywords: broad vs phrase (added after the correction)
+
+`scripts/pk_d4_match_type.py` on `data/sa360_round4/d4_weekly_keywords.parquet`. Bookings here are
+`QR_Booking` all_conversions (attributed, about 3.5x the ledger), so only the comparisons matter.
+
+| UK+IE | 1 Jun-16 Aug | 17-30 Aug | 31 Aug-20 Sep | 21 Sep-5 Oct |
+|---|---:|---:|---:|---:|
+| Broad, bookings per 1k clicks | 6.25 | 6.97 | 2.01 | **0.00** |
+| Phrase, bookings per 1k clicks | 6.52 | 2.01 | **0.00** | **0.00** |
+| Broad share of clicks | 88% | 87% | 85% | 78% |
+
+- **Both match types collapse.** Phrase match (no broad expansion) goes to zero as fast as broad, and broad
+  loses share rather than gaining it. "Broad match drifting into new queries under VBB" is not supported.
+- Long-haul and regional keep converting on both match types after the switch.
+
+## 7. Google Flight Search (GFS): a test of the external explanation
+
+GFS is Google Flights partner data: QR's price position, visibility and selection on each route, by
+user country, independent of paid search. It is the first source that can test the commercial
+explanation (fares, availability, competitors) directly. Queries in `sql/gfs_pk_uk.sql`:
+
+1. QR price competitiveness on PK-origin routes, weekly, UK+IE vs other, Jun 2025 to Oct 2026.
+2. QR shopping behaviour: rank, best flights, selection rate when shown, same split.
+3. Per PK-UK route, before vs from 2 Sep, 2026 and 2025.
+4. Other partners on PK-UK routes, weekly, if the tables hold their rows.
+
+How to read it:
+
+- **QR's PK-UK price position or selection rate drops sharply around 1 to 3 Sep 2026, and not on other
+  PK routes or in Sep 2025:** the cause is commercial (fare, inventory, competitor), and the bidding
+  timing is a coincidence.
+- **A competitor appears or jumps on PK-UK in early September:** same conclusion, with a name.
+- **Nothing moves on PK-UK in GFS:** the external explanation weakens and the bidding experiment is the
+  remaining test.
+- **GFS demand weight for PK users on UK routes falls in Sep 2026 but not Sep 2025:** a real demand drop,
+  which would also explain fewer bookings, though not the full zero on normal traffic.
