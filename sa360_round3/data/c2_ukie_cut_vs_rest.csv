@@ -1,0 +1,9 @@
+bucket,period,cost,clicks,cpc,impressions,impr_share,top_share,abs_top_share,click_share,budget_lost,rank_lost,impr_share_clamped_pct_of_impressions,top_share_clamped_pct_of_impressions,abs_top_share_clamped_pct_of_impressions,click_share_clamped_pct_of_impressions,budget_lost_clamped_pct_of_impressions,rank_lost_clamped_pct_of_impressions
+GB country (cut 20 Aug),13 Jun-19 Aug,28463.89,20152,1.4125,140627,81.1,75.1,56.68,51.63,8.0,10.9,0.0,0.0,0.0,0.0,0.0,0.0
+GB country (cut 20 Aug),20 Aug-1 Sep,689.08,1297,0.5313,14118,65.21,57.52,17.29,26.11,15.98,18.81,0.0,0.0,0.0,0.0,0.0,0.0
+GB country (cut 20 Aug),2-19 Sep,470.09,214,2.1967,1547,33.87,30.44,16.35,14.32,66.13,0.0,0.1,0.0,0.0,0.0,0.1,0.0
+GB country (cut 20 Aug),20 Sep-5 Oct,68.6,110,0.6237,1226,46.82,40.88,12.74,12.75,53.18,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+UK+IE rest,13 Jun-19 Aug,3833.63,9568,0.4007,78866,71.25,65.35,22.38,31.25,6.58,22.17,0.0,0.0,0.0,0.0,0.0,0.0
+UK+IE rest,20 Aug-1 Sep,804.01,2069,0.3886,18983,69.79,62.93,19.57,25.98,6.34,23.87,0.0,0.0,0.0,0.0,0.0,0.0
+UK+IE rest,2-19 Sep,877.35,402,2.1825,2745,23.59,21.79,14.28,14.24,75.3,1.11,2.7,0.0,0.0,0.0,2.7,0.0
+UK+IE rest,20 Sep-5 Oct,804.18,1958,0.4107,18537,55.8,47.99,15.11,15.26,44.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0

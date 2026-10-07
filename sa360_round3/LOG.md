@@ -240,3 +240,161 @@ UK+IE Floodlight bookings go to **exactly zero** after 2 September, and the 5.9 
 entirely the WEBPAGE action. One single UK+IE Floodlight transaction row exists in the whole
 period from 2 September to 5 October. Long-haul over the same split went 74.0 to 24.0 and regional
 127.0 to 17.0, so both fell hard but neither reached zero.
+
+---
+
+## C. Bids and auction share on UK campaigns around the switch
+
+Scripts `s08_c1_campaign_shares.py`, `s09_c2_keyword_shares.py`, `s10_c3_summary.py`.
+
+**C1.** Window pulled 2026-06-13 to 2026-10-05 in 31 day chunks, so the 13 Jun to 19 Aug period
+that C3 needs is covered in the same pass. Dates actually returned 2026-06-13 to 2026-10-05,
+**113 distinct days, no gaps**. 39,461 campaign by day rows.
+
+**C2.** 66 UK+IE campaigns carried impressions in the window. Keyword pull filtered with
+`campaign.id IN (...)`, 1,188 keyword rows per period. Keywords with impressions by period: 232,
+181, 116, 149.
+
+Deviation from the brief, logged: the keyword pull is **per period, not per day**. C3 only needs
+period aggregates, and a daily keyword pull over 113 days would be roughly two orders of magnitude
+larger for no additional answer. Daily keyword data can be added from the same script by putting
+`segments.date` back in the SELECT.
+
+**Clamping check.** Only **1 to 2 percent of impressions** sit on a clamped value, and only in the
+2 to 19 September period. Every other cell is a real measurement. Flagged in the printed output
+and carried as explicit `*_clamped_pct_of_impressions` columns in `c3_period_summary.csv`, so no
+clamped value is silently averaged into a weighted mean.
+
+### UK+IE, campaign level, every share weighted by impressions
+
+| period | cost | clicks | CPC | impr share | top | abs top | click share | lost to budget | lost to rank |
+|---|---|---|---|---|---|---|---|---|---|
+| 13 Jun-19 Aug | 32,298 | 29,720 | 1.087 | 77.6% | 71.6% | 44.4% | 44.7% | 7.5% | 14.9% |
+| 20 Aug-1 Sep | 1,493 | 3,366 | **0.444** | 67.8% | 60.6% | 18.6% | 26.0% | 10.5% | 21.7% |
+| **2-19 Sep** | 1,347 | 616 | **2.187** | **27.3%** | 24.9% | 15.0% | 14.3% | **72.0%** | **0.7%** |
+| 20 Sep-5 Oct | 873 | 2,068 | 0.422 | 55.2% | 47.6% | 15.0% | 15.1% | 44.8% | **0.0%** |
+
+### Everything else, same basis
+
+| period | cost | clicks | CPC | impr share | click share | lost to budget | lost to rank |
+|---|---|---|---|---|---|---|---|
+| 13 Jun-19 Aug | 31,851 | 147,793 | 0.216 | 56.2% | 22.3% | 11.4% | 32.4% |
+| 20 Aug-1 Sep | 4,527 | 22,205 | 0.204 | 47.6% | 17.6% | 13.3% | 39.0% |
+| **2-19 Sep** | 8,575 | 6,748 | **1.271** | 23.1% | 14.1% | **58.0%** | 18.9% |
+| 20 Sep-5 Oct | 7,916 | 19,234 | 0.412 | 53.0% | 16.4% | 42.9% | 4.1% |
+
+### UK+IE, keyword level
+
+| period | keywords with impressions | cost | clicks | CPC | impr share | click share | lost to budget | lost to rank |
+|---|---|---|---|---|---|---|---|---|
+| 13 Jun-19 Aug | 232 | 32,298 | 29,720 | 1.087 | 76.9% | 41.9% | 8.5% | 14.6% |
+| 20 Aug-1 Sep | 181 | 1,493 | 3,366 | 0.444 | 67.1% | 24.7% | 11.8% | 21.0% |
+| **2-19 Sep** | 116 | 1,347 | 616 | **2.187** | **12.3%** | 10.3% | **87.6%** | **0.2%** |
+| 20 Sep-5 Oct | 149 | 873 | 2,068 | 0.422 | 49.7% | 14.3% | 50.3% | 0.0% |
+
+### Key numbers
+
+UK cost per click at the switch: **0.444 to 2.187, a factor of 4.9**. It rose.
+UK impression share: 67.8 to 27.3 percent at campaign level, 67.1 to **12.3** at keyword level.
+Loss moved from rank to budget: **rank lost 21.7 to 0.7 percent, budget lost 10.5 to 72.0**.
+At keyword level the same flip is 21.0 to 0.2 on rank and 11.8 to **87.6** on budget.
+
+The 20 August budget cut is visible as a separate, earlier event with the opposite signature.
+UK daily spend fell from 475 to 115, CPC **fell** from 1.087 to 0.444, and rank lost **rose**
+from 14.9 to 21.7 percent. That is a campaign bidding less and losing auctions. The 2 September
+switch is the mirror image: bidding far more and losing nothing on rank.
+
+UK also went further than the rest of the account on both counts. Non UK rank lost never reaches
+zero, 18.9 percent in September and 4.1 percent now, while UK sits at 0.7 then 0.0.
+
+---
+
+## C2 addition. UK+IE split: the two GB country campaigns cut on 20 Aug, against the rest
+
+Script `s11_c2_ukie_cut_split.py`. Reuses the C1 and C2 pulls, no new API calls.
+
+Bucketing: `Google|PK|Dest|Country|XXX|GB|EN|*` and `Google|PK|O&D|Country|PK|GB|EN|*`, which is
+**2 campaigns**, against the other **64** UK+IE campaigns.
+
+| bucket | period | cost | clicks | CPC | impr share | abs top | lost budget | lost rank |
+|---|---|---|---|---|---|---|---|---|
+| GB country (cut) | 13 Jun-19 Aug | 28,464 | 20,152 | 1.412 | 81.1% | 56.7% | 8.0% | 10.9% |
+| GB country (cut) | 20 Aug-1 Sep | 689 | 1,297 | 0.531 | 65.2% | 17.3% | 16.0% | 18.8% |
+| GB country (cut) | 2-19 Sep | 470 | 214 | **2.197** | 33.9% | 16.3% | **66.1%** | **0.0%** |
+| GB country (cut) | 20 Sep-5 Oct | 69 | 110 | 0.624 | 46.8% | 12.7% | 53.2% | 0.0% |
+| UK+IE rest | 13 Jun-19 Aug | 3,834 | 9,568 | 0.401 | 71.3% | 22.4% | 6.6% | 22.2% |
+| UK+IE rest | 20 Aug-1 Sep | 804 | 2,069 | 0.389 | 69.8% | 19.6% | 6.3% | 23.9% |
+| UK+IE rest | 2-19 Sep | 877 | 402 | **2.182** | 23.6% | 14.3% | **75.3%** | **1.1%** |
+| UK+IE rest | 20 Sep-5 Oct | 804 | 1,958 | 0.411 | 55.8% | 15.1% | 44.2% | 0.0% |
+
+Clamped values: 3 percent of impressions on `impr_share` and `budget_lost`, UK+IE rest, 2 to 19
+September only. Flagged, not averaged away.
+
+**This separates the cut from the switch, and it matters.** The two GB country campaigns carried
+**88 percent** of UK+IE spend before the cut (28,464 of 32,298) and were effectively shut down by
+it: 689 USD over the next 13 days, then 470, then 69.
+
+The other 64 campaigns were **not** cut. Their spend is flat across the last three periods, 804,
+877, 804. And they show the **same September signature anyway**: cost per click 0.389 to 2.182, a
+factor of **5.6**, lost to budget 6.3 to **75.3** percent, lost to rank 23.9 to **1.1**.
+
+So the switch effect reproduces in campaigns the budget cut never touched. The two events are
+separable and the September collapse is not an artefact of the 20 August cut.
+
+Keyword level agrees: GB country impression share 65.4 to 11.6 percent with budget lost 17.9 to
+88.4; UK+IE rest 68.5 to 12.6 with budget lost 7.3 to 87.2.
+
+---
+
+## C4. Why all_conversions is a multiple of the Floodlight ledger
+
+Script `s12_c4_crossdevice.py`. `QR_Booking` only, 2026-08-01 to 2026-10-05, against the 89
+ledger rows from B.
+
+| group | period | ledger rows | all_conv | cross-device | same device | all / ledger | same device / ledger | cross-device share |
+|---|---|---|---|---|---|---|---|---|
+| UK+IE | pre 2 Sep | 14 | 57.0 | 28.0 | 29.0 | 4.07x | **2.07x** | 49.1% |
+| UK+IE | from 2 Sep | 1 | 0.0 | 0.0 | 0.0 | 0.00x | 0.00x | 0.0% |
+| long-haul | pre 2 Sep | 24 | 74.0 | 42.0 | 32.0 | 3.08x | **1.33x** | 56.8% |
+| long-haul | from 2 Sep | 21 | 24.0 | 0.0 | 24.0 | 1.14x | 1.14x | 0.0% |
+| **regional** | pre 2 Sep | 13 | 127.0 | **105.0** | 22.0 | **9.77x** | **1.69x** | **82.7%** |
+| regional | from 2 Sep | 8 | 18.0 | 9.0 | 9.0 | 2.25x | 1.12x | 50.0% |
+| no destination | pre 2 Sep | 2 | 3.0 | 0.0 | 3.0 | 1.50x | 1.50x | 0.0% |
+| no destination | from 2 Sep | 6 | 7.0 | 1.0 | 6.0 | 1.17x | 1.00x | 14.3% |
+| **TOTAL** | both | **89** | **310.0** | **185.0** | **125.0** | **3.48x** | **1.40x** | **59.7%** |
+
+**Cross-device modelling is the answer.** It is 59.7 percent of all QR_Booking conversions, and
+removing it collapses the gap from **3.48x to 1.40x** against the transaction ledger.
+
+Regional is the extreme case: **105 of its 127 attributed conversions are cross-device, 82.7
+percent**, against 49.1 for UK+IE and 56.8 for long-haul. Strip them and regional falls from 9.77x
+to **1.69x**, in line with the others.
+
+So the 9.8x on regional is not a tagging fault and not duplication. It is Google modelling
+conversions that began on one device and completed on another, at roughly half again the rate it
+does for UK and long-haul traffic. Adobe counts the completing session. The residual 1.4x is
+ordinary attribution modelling and fractional credit.
+
+One oddity worth flagging: **UK+IE from 2 September reports 0.0 all_conversions while one real
+ledger transaction exists**, and long-haul reports zero cross-device at all in that period.
+
+---
+
+## C, derived view: market share against position on impressions actually won
+
+`top_share` and `abs_top_share` are shares of the **eligible** market, so they fall mechanically
+when impression share falls. Dividing each by impression share gives position on the impressions
+the account actually won.
+
+| segment | period | impr share | top / own | abs top / own | CPC | clicks |
+|---|---|---|---|---|---|---|
+| UK+IE | 20 Aug-1 Sep | 67.8% | 89.4% | **27.4%** | 0.444 | 3,366 |
+| UK+IE | **2-19 Sep** | **27.3%** | 91.2% | **55.0%** | **2.187** | **616** |
+| UK+IE rest (never cut) | 20 Aug-1 Sep | 69.8% | 90.2% | **28.0%** | 0.389 | 2,069 |
+| UK+IE rest (never cut) | **2-19 Sep** | **23.6%** | 92.4% | **60.5%** | **2.183** | **402** |
+| everything else | 20 Aug-1 Sep | 47.6% | 81.8% | 30.3% | 0.204 | 22,205 |
+| everything else | 2-19 Sep | 23.1% | 82.0% | 49.6% | 1.271 | 6,748 |
+
+Absolute top placement on the impressions won **doubled**, 27.4 to 55.0 percent for UK+IE and 28.0
+to 60.5 for the never cut subset, while impression share fell by about 60 percent. The bidder
+traded breadth for position on a fixed budget.
