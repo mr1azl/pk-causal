@@ -1,0 +1,9 @@
+dest_group,period,rows,sum_quantity,revenue,rows_zero_revenue
+UK+IE,pre 2 Sep,14,14000.0,13736.41,1
+UK+IE,from 2 Sep,1,1000.0,851.96,0
+long-haul,pre 2 Sep,24,24000.0,28232.67,0
+long-haul,from 2 Sep,21,21000.0,27339.34,0
+regional,pre 2 Sep,13,13000.0,10775.38,0
+regional,from 2 Sep,8,8000.0,7371.43,0
+none,pre 2 Sep,2,2000.0,901.56,1
+none,from 2 Sep,6,6000.0,3920.22,0
