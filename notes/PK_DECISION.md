@@ -154,20 +154,70 @@ values. Launch with:
 6. **A weekly guardrail by destination group** on the ledger or Adobe bookings per click, with a rule such
    as: a group below 50% of its 8-week rate for 2 weeks moves to target CPA.
 
-## 7. Addendum: brand search terms (did UK demand move into brand?)
+## 7. Brand: search terms and bookings (redone in depth)
 
-`scripts/pk_brand_search_terms.py` on the PK brand search terms report, May to 7 Oct 2026.
+*First pass looked only at the under-1% of brand queries that name a destination; this replaces it.
+Scripts: `scripts/pk_brand_search_terms.py`, `scripts/pk_brand_vs_nonbrand.py`.*
 
-| Month | Brand clicks | Naming UK/IE | Naming other long-haul | Naming regional |
-|---|---:|---:|---:|---:|
-| Jul 2026 | 83,823 | 1 | 1 | 35 |
-| Aug 2026 | 100,383 | 78 | 91 | 326 |
-| Sep 2026 | 78,734 | 126 | 213 | 353 |
-| Oct 2026 (1-7) | 16,958 | 19 | 31 | 84 |
+### 7.1 Brand search terms
 
-- Over 99% of brand clicks are plain brand queries with no destination (exact-match Hero campaign).
-- Brand queries naming the UK rose from 78 to 126 clicks in September (+48), while total brand clicks
-  fell 22%. Queries naming other long-haul destinations rose more (+122), so the rise is not UK specific.
-  Part of it is the `Brand|Airways` phrase campaign ramping up from 42 clicks in July to 2,100+ from August.
-- +48 clicks is worth one or two bookings at most. **Brand migration does not explain the UK fall.** The
-  agent's conclusion stands, even though its `d6` check could not have shown it.
+| | Jul 2026 | Aug 2026 | Sep 2026 |
+|---|---:|---:|---:|
+| Brand clicks (search terms report) | 83,823 | 100,383 | 78,734 |
+| Brand cost | $2,846 | $4,092 | $4,333 |
+| CPC, `Brand\|Hero` (exact, 90% of clicks) | 0.029 | 0.030 | **0.038** |
+| CPC, `Brand\|Qatar` | 0.142 | 0.177 | **0.255** |
+| CPC, `Brand\|Airways` (phrase) | 0.009 | 0.115 | **0.147** |
+| Clicks on queries naming the UK | 1 | 78 | 126 |
+
+- **No UK demand visible in brand searches.** Queries naming the UK rose by 48 clicks in September, and those
+  naming other long-haul destinations rose more (+122). Over 99% of brand clicks name no destination.
+- **No overlap between the accounts.** The non-brand account buys almost no queries containing "qatar" or "qr"
+  (at most a dozen clicks a month, before and after the switch). Brand campaigns buy almost no queries without
+  a brand word (under 200 clicks a month). The VBB campaigns are not competing with brand.
+- **The brand query mix is stable:** about 94% pure brand, 3% booking, 2% route or ticket, 1% price, each month.
+- **Brand cost per click rose 27% to 44% in September on every query type,** pure "qatar airways" included
+  (0.038 to 0.052), while brand clicks fell. Not explained by anything in these files. Candidates: competitors
+  or OTAs bidding on Qatar brand terms, or a change to the brand campaigns' own bidding. Needs the brand
+  account's bid strategy, impression share metrics and the auction insights report (UI).
+
+### 7.2 Brand and non-brand bookings together (Adobe, click date)
+
+| | 2025 Aug | 2025 Sep | Change | 2026 Aug | 2026 Sep | Change |
+|---|---:|---:|---:|---:|---:|---:|
+| Brand bookings | 866 | 658 | -24% | 905 | 956 | **+6%** |
+| Brand revenue | 852k | 557k | -35% | 965k | 841k | **-13%** |
+| Brand bookings per 1k clicks | 18.6 | 19.2 | +3% | 24.3 | 30.9 | **+27%** |
+| Non-brand bookings | 37 | 27 | -27% | 56 | 35 | -38% |
+| Non-brand revenue | 32k | 18k | -45% | 51k | 28k | -46% |
+| **Total bookings** | 903 | 685 | **-24%** | 961 | 991 | **+3%** |
+| **Total revenue** | 884k | 575k | **-35%** | 1,016k | 869k | **-14%** |
+
+- **Against its own seasonal pattern, PK paid search as a whole did better in September 2026 than in
+  September 2025.** Non-brand fell about as much as it does every September (revenue -46% against -45%;
+  bookings -38% against -27%). Brand beat its seasonal pattern by about 30 points.
+- **Brand converted unusually well in September 2026** (+27% bookings per click against +3% a year earlier).
+  Part of that may be non-brand demand finishing on a brand click: when the switch cut non-brand impression
+  share (UK 68% to 27%), some searchers who would have clicked a non-brand ad may have searched "qatar
+  airways" and booked through brand instead. The data cannot separate that from other brand effects, and the
+  brand surplus (about 270 bookings above the 2025 pattern) is far larger than anything non-brand lost.
+- The 2025 comparison has its own noise: 2025 non-brand spend also fell sharply in September.
+
+### 7.3 What this changes
+
+1. **"PK is not working" does not hold at the level that matters.** Total PK paid search bookings held in
+   September 2026 while they normally fall by a quarter. The non-brand UK problem is real, but it is about 20
+   bookings a month against about 990 in total.
+2. **The Causal Impact readout used brand as the control for non-brand.** If the switch moves demand into
+   brand, or brand changes for its own reasons at the same time (cost per click +27% to 44%, conversion +27%),
+   the control is contaminated and the non-brand effect is understated. The PK result in the readout should
+   not be used for the decision.
+3. **Do not switch PK back on the evidence available.** Fix the UK and add a ROAS target (section 6).
+4. **For India, measure brand and non-brand together** in the holdout, not non-brand against brand.
+
+### 7.4 Brand checks still to run (SA360 agent or UI)
+
+- Brand account bid strategy, portfolio, target and `last_modified_time` for every brand campaign.
+- Brand impression share, top and absolute-top share, rank-lost and budget-lost by week, 1 Jul to 5 Oct.
+- Auction insights for the brand campaigns (UI): which domains appear on Qatar brand terms, and whether that
+  changed in September.
