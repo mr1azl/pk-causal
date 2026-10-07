@@ -153,3 +153,21 @@ values. Launch with:
    effect is measured, not inferred.
 6. **A weekly guardrail by destination group** on the ledger or Adobe bookings per click, with a rule such
    as: a group below 50% of its 8-week rate for 2 weeks moves to target CPA.
+
+## 7. Addendum: brand search terms (did UK demand move into brand?)
+
+`scripts/pk_brand_search_terms.py` on the PK brand search terms report, May to 7 Oct 2026.
+
+| Month | Brand clicks | Naming UK/IE | Naming other long-haul | Naming regional |
+|---|---:|---:|---:|---:|
+| Jul 2026 | 83,823 | 1 | 1 | 35 |
+| Aug 2026 | 100,383 | 78 | 91 | 326 |
+| Sep 2026 | 78,734 | 126 | 213 | 353 |
+| Oct 2026 (1-7) | 16,958 | 19 | 31 | 84 |
+
+- Over 99% of brand clicks are plain brand queries with no destination (exact-match Hero campaign).
+- Brand queries naming the UK rose from 78 to 126 clicks in September (+48), while total brand clicks
+  fell 22%. Queries naming other long-haul destinations rose more (+122), so the rise is not UK specific.
+  Part of it is the `Brand|Airways` phrase campaign ramping up from 42 clicks in July to 2,100+ from August.
+- +48 clicks is worth one or two bookings at most. **Brand migration does not explain the UK fall.** The
+  agent's conclusion stands, even though its `d6` check could not have shown it.
