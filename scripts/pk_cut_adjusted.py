@@ -1,4 +1,4 @@
-"""PK non-brand, UK+IE vs the rest, on campaigns the 20 Aug budget cut did not touch.
+"""PK non-brand by destination group, on campaigns the 20 Aug budget cut did not touch.
 
 Usage: python scripts/pk_cut_adjusted.py <v84.parquet> [cut_list.txt]
 
@@ -15,6 +15,10 @@ import pandas as pd
 pd.set_option("display.width", 250)
 
 UK = {"GB", "LHR", "MAN", "EDI", "LGW", "BHX", "DUB", "IE"}
+LONG_HAUL = set(
+    "US CA ATL BOS DFW IAD IAH JFK LAX MIA ORD SEA SFO YUL YYZ "  # North America
+    "AMS ARN BCN BE BER BRU CDG CPH CY DE DK DUS ES FCO FI FR FRA IT MAD MUC MXP NL NO OSL SE "  # Europe ex UK/IE
+    "ADL AKL AU BNE MEL NZ PER SYD".split())  # Oceania
 GB_COUNTRY = {"Google|PK|Dest|Country|XXX|GB|EN|MOD", "Google|PK|O&D|Country|PK|GB|EN|MOD"}
 EDGES = pd.to_datetime(["2026-06-13", "2026-08-20", "2026-09-02", "2026-10-06"])
 LABELS = ["13 Jun-19 Aug", "20 Aug-1 Sep", "2 Sep-5 Oct"]
@@ -27,8 +31,10 @@ def main(path: str, cut_file: str | None) -> None:
     d = d.join(d.groupby("v84").day.min().rename("click_day"), on="v84")
     pk = d[(d.cc == "PK") & (d.engine == "Google") & (d.group == "Non-brand")].copy()
     parts = pk.campaign.str.split("|")
-    pk["dest"] = np.where(parts.str.len() == 8, parts.str[5], "")
-    pk["region"] = np.where(pk.dest.isin(UK), "UK+IE", "other")
+    new = parts.str.len() == 8
+    pk["dest"] = np.where(new, parts.str[5], "")
+    pk["region"] = np.select([~new, pk.dest.isin(UK), pk.dest.isin(LONG_HAUL)],
+                             ["generic (legacy)", "UK+IE", "other long-haul"], "regional")
     first = pk[pk.day == pk.click_day]
 
     if cut_file:
@@ -48,7 +54,12 @@ def main(path: str, cut_file: str | None) -> None:
     out = tot.div(NDAYS, level="period", axis=0).round(2)
     out["booking rate %"] = (tot.bookings / tot.search_visits * 100).round(2)
     out["bookings total"] = tot.bookings
+    out["revenue per booking"] = (tot.revenue / tot.bookings).round(0)
     print(out.to_string())
+    rev = out.revenue.unstack("period")
+    for base in LABELS[:2]:
+        loss = (rev[base] - rev[LABELS[2]]).round(0)
+        print(f"Revenue lost per day vs {base}: {loss.to_dict()}, net {loss.sum():.0f}")
 
     uk = tot.loc["UK+IE"]
     rate = uk.bookings.iloc[:2].sum() / uk.search_visits.iloc[:2].sum()

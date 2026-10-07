@@ -11,18 +11,21 @@ whose destination is GB, IE or a UK or Irish airport.
 
 ## Headline
 
-> **Revised after review (section 7).** Section 2 below folded the 20 Aug cut fortnight into the
-> "before" period, so its GB country result mixes the cut with the switch. The headline holds on the
-> campaigns the cut did not touch, and is sharper as a conversion story: see section 7.
+> **Revised twice after review (sections 7 and 8).** Section 2 folded the 20 Aug cut fortnight into
+> "before". The UK share of the revenue loss depends on the source (section 8.1). Seasonality is not
+> yet ruled out (section 8.3). Do not quote the UK result outside the team until 8.3 is done.
 
-**On Adobe, VBB in PK did not fail across the board. It failed on one destination: the UK, and as a
-conversion failure, not a traffic one.**
+**The UK is the sharpest PK failure after the switch, and it is a conversion failure, not a traffic one.**
 
 - On campaigns the 20 Aug cut did not touch, UK+IE and the rest lost about the same share of clicks
   at the switch (61% and 65%).
 - The UK+IE booking rate went from 0.92% of search visits in the cut fortnight to zero (0 bookings in
-  34 days, about 6 expected). The rest went from 0.14% to 0.41%.
-- The UK accounts for essentially all of the non-brand revenue PK has lost since the switch.
+  34 days, about 6 expected). The rest improved.
+- The UK's share of the lost non-brand revenue is about 100% on Adobe but about 38% to 54% on
+  Floodlight. The sources disagree on regional destinations, which is now a separate open thread
+  (section 8.2).
+- Seasonality, in particular the September UK student intake and VFR travel, could produce the same
+  pattern and has not been tested.
 
 ## 1. PK by click date, per day
 
@@ -282,3 +285,104 @@ Adobe, PK Google non-brand, click date, per day:
 3. VBB value distribution for UK-destination searches (fallback share, zero share, median), as before.
 4. Booking counting: Floodlight booking activity counting method and `event27` definition (7.5).
 5. Replace the inferred cut list with the actual 20 Aug list and re-run 7.2.
+
+---
+
+## 8. Second review: revenue split, regional value, seasonality
+
+*Re-checked on Adobe with `scripts/pk_cut_adjusted.py`, which now splits the non-cut campaigns into
+UK+IE, other long-haul (North America, Europe excluding UK and IE, Oceania), regional (everything
+else) and the legacy generic campaign. The review's Floodlight split uses the real cut list and its
+own destination groups, which may differ from these.*
+
+### 8.1 "The UK accounts for essentially all the lost revenue": true on Adobe, not on Floodlight
+
+Adobe, non-cut campaigns, per day:
+
+| Group | Period | Search visits | Bookings (total) | Booking rate | Revenue | Revenue per booking |
+|---|---|---:|---:|---:|---:|---:|
+| UK+IE | 13 Jun-19 Aug | 38.6 | 0.31 (21) | 0.80% | $205 | $664 |
+| | 20 Aug-1 Sep | 58.2 | 0.54 (7) | 0.92% | $753 | $1,399 |
+| | 2 Sep-5 Oct | 22.9 | 0.00 (0) | 0% | $0 | |
+| Other long-haul | 13 Jun-19 Aug | 135.4 | 0.38 (26) | 0.28% | $401 | $1,050 |
+| | 20 Aug-1 Sep | 178.0 | 0.54 (7) | 0.30% | $551 | $1,023 |
+| | 2 Sep-5 Oct | 64.1 | 0.29 (10) | 0.46% | $313 | $1,064 |
+| Regional | 13 Jun-19 Aug | 164.9 | 0.04 (3) | 0.03% | $58 | $1,320 |
+| | 20 Aug-1 Sep | 296.6 | 0.15 (2) | 0.05% | $88 | $571 |
+| | 2 Sep-5 Oct | 87.4 | 0.21 (7) | 0.24% | $156 | $757 |
+| Generic (legacy) | 13 Jun-19 Aug | 17.9 | 0.07 (5) | 0.41% | $93 | |
+| | 2 Sep-5 Oct | 22.5 | 0.21 (7) | 0.92% | $102 | |
+
+- **On Adobe,** net non-brand revenue lost per day is $187 against 13 Jun-19 Aug and $821 against
+  the cut fortnight. The UK accounts for $205 and $753, so about 100% in both cases. Other long-haul lost
+  $89 and $238. Regional and generic gained.
+- **On Floodlight (the review's split),** the UK is $398 of the loss (38%), regional $421 (40%) and
+  other long-haul $221 (21%).
+- **The headline must name its source.** "The UK is the sharpest failure" holds in both. "Essentially
+  all of the loss" holds only in Adobe.
+
+### 8.2 The regional "value failure": real on Floodlight, not visible on Adobe
+
+The review finds regional booking rate up from 1.04% to 1.90% while revenue fell 59%, and reads it as the bidder
+buying cheap tickets. On Adobe:
+
+- **Adobe barely sees regional non-brand bookings at all:** 3 in the 68 days before the switch,
+  against about 2.3 a day (about 157) on Floodlight. The Floodlight/Adobe booking ratio is about 50x for
+  regional, about 3x for other long-haul and about 2.6x for the UK.
+- **Floodlight's regional revenue per booking after the switch is about $115.** That is below the
+  cheapest Adobe booking from a regional campaign in the whole window ($81 to $2,623, median about
+  $480 after the switch). It has the same signature as the post-switch Floodlight bookings with no
+  revenue (section 4 of `PK_VBB_DIAGNOSIS.md`).
+- **On Adobe, regional revenue rose** ($58 to $156 a day). Revenue per booking fell ($1,320 on 3
+  bookings to $757 on 7), which fits the bidder buying cheaper regional tickets, but on counts this
+  small it is not evidence either way.
+
+Reading: the regional thread is worth opening, but on Floodlight it rests on a series where Floodlight
+sees about 50 times the bookings Adobe does, at a value per booking no real ticket has. Resolve what
+Floodlight counts for PK (checks 4 and 5 in 7.7) before treating it as a value-signal failure. If the API
+booking actions (Cowork round 2) show the same regional pattern, it stands.
+
+### 8.3 Seasonality is the largest open threat to the UK finding (accepted)
+
+- PK to UK is heavily VFR and student traffic. Students for the September university intake book in
+  July and August and stop at term start; VFR families return in late August. A UK-specific booking
+  cliff on about 1 September is what both predict, with no bidding change needed.
+- The control in section 2 (UK campaigns in SA, MY, SG) does not test this. Those markets have no
+  comparable intake or term pattern. Withdrawn as evidence.
+- Within 2026 the data cannot separate the two. UK non-cut bookings by click week were 1 to 3 a week through
+  June to mid August, then 6 in the week of 24 to 30 Aug, the best week since June. A gradual
+  seasonal fade would have shown before the switch; a last-minute intake surge followed by a cliff
+  would look exactly like this.
+- **Needed:** PK-to-UK non-brand bookings (or PK site bookings to UK, any channel) by week, Jun to Oct
+  2025. If September 2025 shows the same cliff, the UK thread closes.
+
+### 8.4 Tracking break: unlikely, but confirm (partly accepted)
+
+- UK clicks still register search visits at the same rate (1.05 per click before and after), so the
+  landing and search tagging work for UK traffic.
+- The booking confirmation is the same page for every route on the PK site. A UK-only break in
+  booking tracking would need route-specific tagging. Adobe also recorded a booking from a PK-IE
+  campaign on 3 Oct.
+- Floodlight's roughly 5 UK bookings after the switch carry about $25 a day in total, about $170 each.
+  These are not UK tickets. On revenue the two sources agree that the UK went to about zero.
+- Still worth one question to the web team: any change to UK route pages, fare display or the
+  booking flow for UK destinations around 1 to 3 Sep (for example a fare or availability change on
+  PK-UK routes, which would also hit conversion without any bidding cause).
+
+### 8.5 Ticket-versus-order hypothesis (withdrawn)
+
+The review is right: if family party size drove the gap, the UK (family VFR) should show the widest
+gap. It shows the narrowest (about 2.6x) and regional the widest (about 50x). The gap tracks
+destination group, not party size. What Floodlight counts for PK, especially for regional campaigns,
+needs checking directly.
+
+### 8.6 Order of next checks
+
+1. **2025 PK-to-UK weekly bookings** (8.3). Decides whether the UK thread survives.
+2. **What Floodlight counts for PK bookings** (counting method, attribution, lookback), and whether
+   the API booking actions reproduce the regional pattern (8.2). Decides whether the regional
+   thread exists.
+3. Bids, impression share and search terms for the non-cut UK campaigns (7.7), only if 1 does not
+   close the UK thread.
+4. Re-run 8.1 with the real cut list and the review's destination groups, so both sources use the
+   same definitions.
