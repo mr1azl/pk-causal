@@ -1,0 +1,7 @@
+dest_group,period,ledger_rows,all_conversions,cross_device,same_device,all_over_ledger,same_device_over_ledger
+UK+IE,pre 2 Sep,1,1.0,0.0,1.0,1.0,1.0
+UK+IE,from 2 Sep,5,5.0,0.0,5.0,1.0,1.0
+long-haul,pre 2 Sep,7,11.0,1.0,10.0,1.571,1.429
+long-haul,from 2 Sep,23,26.0,2.0,24.0,1.13,1.043
+regional,pre 2 Sep,88,189.0,48.0,141.0,2.148,1.602
+regional,from 2 Sep,60,88.0,28.0,60.0,1.467,1.0

@@ -89,6 +89,15 @@ One campaign level negative keyword exists, on the IE campaign, last touched 17 
 So: no keyword cull, no new negative, no match type change, no location edit, no audience change,
 no bid modifier, no ad group change that touched anything live.
 
+**Correction, added after the main round.** D3 did not cover `ad_group_ad`, and the ads were
+changed: **198 UK+IE ads were paused on 7 September**, with the 198 that stayed live last modified
+17 July. It does not alter the conclusion, because the paused and the live sets point at the same
+landing page (`qatarairways.com/en-pk/homepage.html`), long-haul got the same treatment on the same
+day, and daily serving shows no discontinuity at 7 September. But the accurate sentence is: nothing
+changed other than the bid strategy, 72 dormant ad groups paused on 25 September, and 198 duplicate
+ads paused on 7 September. Age and gender mix were also checked and are flat across the switch for
+both UK and long-haul.
+
 **Limit on this answer.** `change_event` does not exist in this API, so `last_modified_time` is
 the only record and it shows the **most recent** edit per object, not a history. An object changed
 on 1 September and again on 3 September shows only 3 September. The conclusion holds for anything
@@ -157,6 +166,69 @@ come entirely from the WEBPAGE action. The `QR_Booking` Floodlight count for UK+
 zero, and one single UK+IE transaction row exists in the whole period to 5 October.
 
 ---
+
+## Follow on 1: which campaigns to move back to Maximise Conversions
+
+Only **6 campaigns on the VBB portfolio still record a booking**, and those are the only defensible
+candidates, because Maximise Conversions optimises on a conversion count and a campaign reading
+zero gives it nothing to work with.
+
+| campaign | cost 20 Sep-5 Oct | budget lost | rank lost | bookings per 1k searches now vs before |
+|---|---|---|---|---|
+| **`Dest\|Country\|XXX\|SA`** | 546 | **75%** | 0% | **3.3 vs 7.9** |
+| `O&D\|Country\|PK\|US` | 209 | 37% | 0% | 12.2 vs 9.1 |
+| `Dest\|Country\|XXX\|CA` | 186 | 51% | 0% | 22.1 vs 7.8 |
+| `O&D\|Country\|PK\|CA` | 102 | 39% | 0% | 7.6 vs 8.6 |
+| `O&D\|Routes\|LHE\|JFK` | 84 | 31% | 0% | 30.8 vs 34.5 |
+| `O&D\|Country\|PK\|DE` | 61 | 31% | 0% | 12.2 vs 7.5 |
+
+**If only one moves, move SA.** Largest on portfolio spender that still converts, losing 75 percent
+of impression share to budget with zero to rank, so it is overpaying rather than being outbid, and
+its booking rate has halved. Three of the others are converting above their old rate, so moving
+them buys more of something already working rather than fixing anything.
+
+Together they run about 74 USD a day, roughly 15 percent of the portfolio budget.
+
+**Do not move any UK campaign.** `Dest|City|XXX|LGW` is the only UK campaign passing the spend and
+history filters and its signal is dead. UK still produces flight searches normally, so Maximise
+Conversions would buy more of them, and they still do not book. The UK cause is downstream and
+unresolved; diagnose before rebidding.
+
+**The mechanical catch.** The portfolio shares one daily budget of 489.79 USD. Moving a campaign
+off the portfolio also moves it off that budget, so each mover needs its own budget at roughly its
+current run rate, and the remainder keeps the full 490 for fewer campaigns. That is two changes,
+not one, and it will confound the read unless set deliberately.
+
+## Follow on 2: `_PK-Generic-RMKT_Exact`, and why it changes the advice above
+
+This campaign is CPA bidding, not ROAS, so an action carrying no value is not a defect. The right
+metric is cost per conversion.
+
+**It is not running as remarketing.** `target_restrictions` is
+`{"targetingDimension": "AUDIENCE", "bidOnly": true}`, which is observation, not targeting, and all
+**159 user lists carry no bid modifier**. The audiences neither narrow reach nor move the bid. The
+ad group is named "Generic Keywords" and the campaign holds 5,092 campaign level keyword criteria.
+
+**Its cost per conversion has doubled while it never switched:**
+
+| period | cost/day | CPC | cost per flight search | impression share |
+|---|---|---|---|---|
+| 13 Jun-19 Aug | 23.4 | 0.453 | **1.02** | 40% |
+| 20 Aug-1 Sep | 34.9 | 0.568 | 1.44 | 40% |
+| 2-19 Sep | 38.4 | 0.615 | 1.61 | 37% |
+| 20 Sep-5 Oct | **52.3** | **0.734** | **2.10** | 39% |
+
+Same share of the market for twice the money, on Maximise Conversions with **no target CPA**,
+untouched since 21 July.
+
+**So Maximise Conversions is not by itself a safe harbour**, and the switchback advice gains a
+condition: **set a target CPA on anything that moves**, starting from each campaign's own cost per
+conversion over 13 June to 19 August. Unconstrained Maximise Conversions on a capped budget is
+exactly what this campaign has been running.
+
+Also note it is a poor matched control for anything else: it is the **only PRESENCE campaign** in
+the account, the **only one losing share to rank** rather than budget, and it has its own 50.29
+budget.
 
 ## Caveats
 

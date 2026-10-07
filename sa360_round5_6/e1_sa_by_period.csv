@@ -1,0 +1,5 @@
+period,days,cost,clicks,cpc,searches,bookings,bookings_per_1k_searches,impression_share,click_share,budget_lost_is,rank_lost_is,vbb_value_per_search,cross_device_bookings
+13 Jun-19 Aug,68,19773.5,64931,0.3045,38474.0,314.0,8.16,35.0,16.1,10.0,55.4,68.46,77.0
+20 Aug-1 Sep,13,2995.12,9434,0.3175,5236.0,57.0,10.89,32.6,15.1,14.4,53.5,67.31,16.0
+2-19 Sep,18,6534.04,9708,0.6731,5424.0,75.0,13.83,37.4,11.9,61.4,1.2,82.33,21.0
+20 Sep-5 Oct,16,6141.66,8526,0.7203,4508.0,44.0,9.76,37.4,13.4,39.3,23.6,71.2,9.0
