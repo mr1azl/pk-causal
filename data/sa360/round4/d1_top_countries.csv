@@ -1,0 +1,161 @@
+segment,period,rank,country,clicks
+GB country (cut 20 Aug),13 Jun-19 Aug,1,United Kingdom,4023
+GB country (cut 20 Aug),13 Jun-19 Aug,2,United Arab Emirates,113
+GB country (cut 20 Aug),13 Jun-19 Aug,3,United States,91
+GB country (cut 20 Aug),13 Jun-19 Aug,4,Saudi Arabia,72
+GB country (cut 20 Aug),13 Jun-19 Aug,5,India,71
+GB country (cut 20 Aug),13 Jun-19 Aug,6,Spain,70
+GB country (cut 20 Aug),13 Jun-19 Aug,7,Ireland,54
+GB country (cut 20 Aug),13 Jun-19 Aug,8,Italy,47
+GB country (cut 20 Aug),13 Jun-19 Aug,9,Canada,46
+GB country (cut 20 Aug),13 Jun-19 Aug,10,Germany,42
+GB country (cut 20 Aug),20 Aug-1 Sep,1,United Kingdom,225
+GB country (cut 20 Aug),20 Aug-1 Sep,2,India,6
+GB country (cut 20 Aug),20 Aug-1 Sep,3,Saudi Arabia,5
+GB country (cut 20 Aug),20 Aug-1 Sep,4,Spain,5
+GB country (cut 20 Aug),20 Aug-1 Sep,5,Germany,4
+GB country (cut 20 Aug),20 Aug-1 Sep,6,Ireland,4
+GB country (cut 20 Aug),20 Aug-1 Sep,7,Netherlands,3
+GB country (cut 20 Aug),20 Aug-1 Sep,8,Qatar,2
+GB country (cut 20 Aug),20 Aug-1 Sep,9,Canada,2
+GB country (cut 20 Aug),20 Aug-1 Sep,10,United States,2
+GB country (cut 20 Aug),2-19 Sep,1,United Kingdom,79
+GB country (cut 20 Aug),2-19 Sep,2,Ireland,2
+GB country (cut 20 Aug),2-19 Sep,3,Switzerland,2
+GB country (cut 20 Aug),2-19 Sep,4,Jersey,2
+GB country (cut 20 Aug),2-19 Sep,5,Germany,1
+GB country (cut 20 Aug),2-19 Sep,6,United Arab Emirates,1
+GB country (cut 20 Aug),2-19 Sep,7,Egypt,1
+GB country (cut 20 Aug),2-19 Sep,8,Canada,1
+GB country (cut 20 Aug),2-19 Sep,9,India,1
+GB country (cut 20 Aug),2-19 Sep,10,Tanzania,1
+GB country (cut 20 Aug),20 Sep-5 Oct,1,United Kingdom,20
+GB country (cut 20 Aug),20 Sep-5 Oct,2,Saudi Arabia,1
+GB country (cut 20 Aug),20 Sep-5 Oct,3,Spain,1
+GB country (cut 20 Aug),20 Sep-5 Oct,4,Bulgaria,0
+GB country (cut 20 Aug),20 Sep-5 Oct,5,Canada,0
+GB country (cut 20 Aug),20 Sep-5 Oct,6,Croatia,0
+GB country (cut 20 Aug),20 Sep-5 Oct,7,Cyprus,0
+GB country (cut 20 Aug),20 Sep-5 Oct,8,Denmark,0
+GB country (cut 20 Aug),20 Sep-5 Oct,9,France,0
+GB country (cut 20 Aug),20 Sep-5 Oct,10,Germany,0
+UK+IE rest,13 Jun-19 Aug,1,United Kingdom,938
+UK+IE rest,13 Jun-19 Aug,2,Ireland,175
+UK+IE rest,13 Jun-19 Aug,3,Saudi Arabia,34
+UK+IE rest,13 Jun-19 Aug,4,United Arab Emirates,29
+UK+IE rest,13 Jun-19 Aug,5,United States,26
+UK+IE rest,13 Jun-19 Aug,6,India,20
+UK+IE rest,13 Jun-19 Aug,7,Spain,18
+UK+IE rest,13 Jun-19 Aug,8,Italy,15
+UK+IE rest,13 Jun-19 Aug,9,Germany,15
+UK+IE rest,13 Jun-19 Aug,10,Canada,13
+UK+IE rest,20 Aug-1 Sep,1,United Kingdom,227
+UK+IE rest,20 Aug-1 Sep,2,Ireland,8
+UK+IE rest,20 Aug-1 Sep,3,India,7
+UK+IE rest,20 Aug-1 Sep,4,Saudi Arabia,7
+UK+IE rest,20 Aug-1 Sep,5,Canada,5
+UK+IE rest,20 Aug-1 Sep,6,Qatar,5
+UK+IE rest,20 Aug-1 Sep,7,United Arab Emirates,5
+UK+IE rest,20 Aug-1 Sep,8,Germany,4
+UK+IE rest,20 Aug-1 Sep,9,Spain,4
+UK+IE rest,20 Aug-1 Sep,10,Turkiye,2
+UK+IE rest,2-19 Sep,1,United Kingdom,102
+UK+IE rest,2-19 Sep,2,Ireland,6
+UK+IE rest,2-19 Sep,3,Canada,5
+UK+IE rest,2-19 Sep,4,United States,2
+UK+IE rest,2-19 Sep,5,Denmark,2
+UK+IE rest,2-19 Sep,6,India,2
+UK+IE rest,2-19 Sep,7,Saudi Arabia,1
+UK+IE rest,2-19 Sep,8,Spain,1
+UK+IE rest,2-19 Sep,9,South Africa,1
+UK+IE rest,2-19 Sep,10,Germany,1
+UK+IE rest,20 Sep-5 Oct,1,United Kingdom,95
+UK+IE rest,20 Sep-5 Oct,2,Ireland,12
+UK+IE rest,20 Sep-5 Oct,3,United States,6
+UK+IE rest,20 Sep-5 Oct,4,Saudi Arabia,5
+UK+IE rest,20 Sep-5 Oct,5,Canada,4
+UK+IE rest,20 Sep-5 Oct,6,United Arab Emirates,4
+UK+IE rest,20 Sep-5 Oct,7,Germany,3
+UK+IE rest,20 Sep-5 Oct,8,Norway,2
+UK+IE rest,20 Sep-5 Oct,9,Afghanistan,1
+UK+IE rest,20 Sep-5 Oct,10,Bahrain,1
+long-haul,13 Jun-19 Aug,1,Spain,1150
+long-haul,13 Jun-19 Aug,2,Italy,863
+long-haul,13 Jun-19 Aug,3,Germany,681
+long-haul,13 Jun-19 Aug,4,Canada,601
+long-haul,13 Jun-19 Aug,5,United States,458
+long-haul,13 Jun-19 Aug,6,France,323
+long-haul,13 Jun-19 Aug,7,Cyprus,273
+long-haul,13 Jun-19 Aug,8,Saudi Arabia,239
+long-haul,13 Jun-19 Aug,9,United Kingdom,210
+long-haul,13 Jun-19 Aug,10,United Arab Emirates,190
+long-haul,20 Aug-1 Sep,1,Germany,103
+long-haul,20 Aug-1 Sep,2,Cyprus,67
+long-haul,20 Aug-1 Sep,3,Italy,62
+long-haul,20 Aug-1 Sep,4,Spain,52
+long-haul,20 Aug-1 Sep,5,Finland,38
+long-haul,20 Aug-1 Sep,6,United Kingdom,34
+long-haul,20 Aug-1 Sep,7,France,30
+long-haul,20 Aug-1 Sep,8,Australia,30
+long-haul,20 Aug-1 Sep,9,United States,29
+long-haul,20 Aug-1 Sep,10,Saudi Arabia,27
+long-haul,2-19 Sep,1,United States,71
+long-haul,2-19 Sep,2,Canada,60
+long-haul,2-19 Sep,3,Italy,56
+long-haul,2-19 Sep,4,Germany,35
+long-haul,2-19 Sep,5,Australia,31
+long-haul,2-19 Sep,6,Spain,28
+long-haul,2-19 Sep,7,United Kingdom,19
+long-haul,2-19 Sep,8,Cyprus,17
+long-haul,2-19 Sep,9,Saudi Arabia,11
+long-haul,2-19 Sep,10,India,10
+long-haul,20 Sep-5 Oct,1,Canada,182
+long-haul,20 Sep-5 Oct,2,United States,167
+long-haul,20 Sep-5 Oct,3,Australia,128
+long-haul,20 Sep-5 Oct,4,Germany,70
+long-haul,20 Sep-5 Oct,5,Cyprus,49
+long-haul,20 Sep-5 Oct,6,Italy,46
+long-haul,20 Sep-5 Oct,7,United Kingdom,25
+long-haul,20 Sep-5 Oct,8,Spain,24
+long-haul,20 Sep-5 Oct,9,United Arab Emirates,23
+long-haul,20 Sep-5 Oct,10,Saudi Arabia,22
+regional,13 Jun-19 Aug,1,Saudi Arabia,286
+regional,13 Jun-19 Aug,2,Turkiye,190
+regional,13 Jun-19 Aug,3,United Kingdom,126
+regional,13 Jun-19 Aug,4,India,121
+regional,13 Jun-19 Aug,5,Bahrain,93
+regional,13 Jun-19 Aug,6,Germany,89
+regional,13 Jun-19 Aug,7,Indonesia,79
+regional,13 Jun-19 Aug,8,United Arab Emirates,72
+regional,13 Jun-19 Aug,9,Malaysia,67
+regional,13 Jun-19 Aug,10,Italy,67
+regional,20 Aug-1 Sep,1,United Kingdom,43
+regional,20 Aug-1 Sep,2,Saudi Arabia,35
+regional,20 Aug-1 Sep,3,Malaysia,23
+regional,20 Aug-1 Sep,4,Turkiye,22
+regional,20 Aug-1 Sep,5,Germany,20
+regional,20 Aug-1 Sep,6,India,16
+regional,20 Aug-1 Sep,7,Canada,12
+regional,20 Aug-1 Sep,8,Italy,11
+regional,20 Aug-1 Sep,9,Spain,11
+regional,20 Aug-1 Sep,10,Kuwait,10
+regional,2-19 Sep,1,Saudi Arabia,236
+regional,2-19 Sep,2,United Arab Emirates,118
+regional,2-19 Sep,3,United Kingdom,52
+regional,2-19 Sep,4,Bahrain,33
+regional,2-19 Sep,5,United States,24
+regional,2-19 Sep,6,Kuwait,19
+regional,2-19 Sep,7,Germany,17
+regional,2-19 Sep,8,Canada,14
+regional,2-19 Sep,9,Turkiye,12
+regional,2-19 Sep,10,Malaysia,11
+regional,20 Sep-5 Oct,1,United Kingdom,37
+regional,20 Sep-5 Oct,2,Saudi Arabia,34
+regional,20 Sep-5 Oct,3,Canada,27
+regional,20 Sep-5 Oct,4,Malaysia,26
+regional,20 Sep-5 Oct,5,United States,26
+regional,20 Sep-5 Oct,6,Turkiye,18
+regional,20 Sep-5 Oct,7,United Arab Emirates,15
+regional,20 Sep-5 Oct,8,Australia,14
+regional,20 Sep-5 Oct,9,Qatar,14
+regional,20 Sep-5 Oct,10,Indonesia,12

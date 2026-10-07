@@ -1,0 +1,21 @@
+segment,period,clicks,clicks_in_pakistan,clicks_outside_pakistan,pct_outside,cost
+GB country (cut 20 Aug),13 Jun-19 Aug,20152,15132,5020,24.91,28463.89
+GB country (cut 20 Aug),20 Aug-1 Sep,1295,1018,277,21.39,688.16
+GB country (cut 20 Aug),2-19 Sep,214,121,93,43.46,470.09
+GB country (cut 20 Aug),20 Sep-5 Oct,110,88,22,20.0,68.6
+UK+IE rest,13 Jun-19 Aug,9568,8184,1384,14.46,3833.63
+UK+IE rest,20 Aug-1 Sep,2069,1786,283,13.68,804.01
+UK+IE rest,2-19 Sep,402,275,127,31.59,877.35
+UK+IE rest,20 Sep-5 Oct,1958,1809,149,7.61,804.18
+long-haul,13 Jun-19 Aug,63207,56630,6577,10.41,15974.74
+long-haul,20 Aug-1 Sep,7282,6657,625,8.58,1573.85
+long-haul,2-19 Sep,1758,1332,426,24.23,2882.22
+long-haul,20 Sep-5 Oct,8275,7331,944,11.41,3784.24
+regional,13 Jun-19 Aug,81074,79021,2053,2.53,14283.61
+regional,20 Aug-1 Sep,14123,13793,330,2.34,2499.08
+regional,2-19 Sep,3867,3229,638,16.5,5001.58
+regional,20 Sep-5 Oct,9818,9476,342,3.48,3294.16
+none,13 Jun-19 Aug,3512,3512,0,0.0,1592.19
+none,20 Aug-1 Sep,800,800,0,0.0,454.05
+none,2-19 Sep,1123,1123,0,0.0,691.02
+none,20 Sep-5 Oct,1141,1141,0,0.0,837.41

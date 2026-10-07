@@ -1,0 +1,5 @@
+resource,rows,detail,with_bid_modifier,user_list_criteria,modified_on_or_after_15aug
+campaign_audience_view,3145,clicks=8783,,,
+ad_group_audience_view,0,clicks=0,,,
+ad_group_bid_modifier,query refused,UNRECOGNIZED_FIELD: Unrecognized field in the query: 'ad_group_bid_modifier.criterion_id'.,,,
+campaign_criterion_all,3476,"{'USER_LIST': 3145, 'DEVICE': 198, 'LANGUAGE': 66, 'LOCATION': 66}",0,3145,0

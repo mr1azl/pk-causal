@@ -78,7 +78,7 @@ Paste as is:
 
 ## What each answers
 
-| Request | Question | Section of `PK_ADOBE_FRESH_LOOK.md` |
+| Request | Question | Section of `docs/analysis/02_PK_ADOBE_FRESH_LOOK.md` |
 |---|---|---|
 | 1 / 1b | Is the September UK drop seasonal? | 8.3 |
 | 2A | Same question on Floodlight, plus a 2025 baseline for every destination group | 8.1, 8.3 |

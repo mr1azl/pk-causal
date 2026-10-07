@@ -1,6 +1,6 @@
 # PK: SA360 round 3 (seasonality and what a Floodlight booking is)
 
-*7 Oct 2026. Pulled by the SA360 API agent; its scripts, log and summary tables are in `sa360_round3/`
+*7 Oct 2026. Pulled by the SA360 API agent; its scripts, log and summary tables are in `docs/agent_findings/sa360_round3/`
 (large daily files and raw rows are not in the repo). Cross-checks in
 `scripts/pk_sa360_round3_checks.py`. All counts below are `all_conversions` unless they say "ledger".*
 

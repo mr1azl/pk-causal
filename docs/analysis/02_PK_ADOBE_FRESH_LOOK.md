@@ -332,7 +332,7 @@ buying cheap tickets. On Adobe:
 - **Floodlight's regional revenue per booking after the switch is about $115.** That is below the
   cheapest Adobe booking from a regional campaign in the whole window ($81 to $2,623, median about
   $480 after the switch). It has the same signature as the post-switch Floodlight bookings with no
-  revenue (section 4 of `PK_VBB_DIAGNOSIS.md`).
+  revenue (section 4 of `docs/analysis/01_PK_VBB_DIAGNOSIS.md`).
 - **On Adobe, regional revenue rose** ($58 to $156 a day). Revenue per booking fell ($1,320 on 3
   bookings to $757 on 7), which fits the bidder buying cheaper regional tickets, but on counts this
   small it is not evidence either way.
@@ -389,7 +389,7 @@ needs checking directly.
 
 ---
 
-## 9. Update from SA360 round 3 (see `PK_SA360_ROUND3.md`)
+## 9. Update from SA360 round 3 (see `docs/analysis/03_PK_SA360_ROUND3.md`)
 
 - **8.3 seasonality:** tested on SA360 2025. No September cliff for PK UK+IE in 2025 (bookings per
   click +132% from August to September 2025, -91% in 2026). The UK thread stands, with the caveat that

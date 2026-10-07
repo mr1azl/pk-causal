@@ -1,6 +1,6 @@
 """Booking rate per click on both booking actions, and search value vs booking value, by destination group.
 
-Usage: python scripts/pk_booking_tags_by_group.py data/sa360_round3 data/sa360_round3/c1_campaign_daily_shares.parquet
+Usage: python scripts/pk_booking_tags_by_group.py data/sa360/round3 data/sa360/round3/c1_campaign_daily_shares.parquet
 
 QR_Booking is the Floodlight transaction tag; Booking is the Google Ads webpage tag (data-driven
 attribution). They are independent measurements of the same bookings.

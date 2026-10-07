@@ -1,6 +1,6 @@
 # PK-UK on Google Flights (GFS): price, visibility and demand around the switch
 
-*7 Oct 2026. Run of `notebooks/GFS_PK_UK.ipynb`, outputs in `gfs_out/`. GFS data 18 Feb 2025 to 4 Oct 2026.
+*7 Oct 2026. Run of `notebooks/GFS_PK_UK.ipynb`, outputs in `data/gfs/`. GFS data 18 Feb 2025 to 4 Oct 2026.
 Run with `USER_COUNTRY = None` (all Google Flights users); Pakistan users are about 70% of the weight on
 PK-origin routes. Weekly, Sunday-start weeks. GFS is Google Flights behaviour only, not bookings.*
 
@@ -42,7 +42,7 @@ Two changes are visible, but neither fits:
 
 Across the main PK-UK routes (LHE-LHR, ISB-MAN, ISB-LHR, KHI-LHR, LHE-MAN, ISB-BHX; the top 10 are 55% of
 demand), QR's cheapest share moved between -0.20 and +0.14 against 2025, in both directions. No route
-shows QR becoming uncompetitive. Full table: `gfs_out/q3_routes_summary.csv`.
+shows QR becoming uncompetitive. Full table: `data/gfs/q3_routes_summary.csv`.
 
 ## Limits
 

@@ -183,7 +183,7 @@ Scripts: `scripts/pk_brand_search_terms.py`, `scripts/pk_brand_vs_nonbrand.py`.*
   **India control (no switch):** India `Brand|Qatar` CPC rose 0.15 (Jul) to 0.28 (Aug) to 0.39 (Sep) and
   `Brand|Airways` ramped from August as in PK, so the brand CPC rise is market or programme wide, not caused
   by PK's VBB switch. Only PK `Brand|Hero` (+27% in Sep, flat in India) remains unexplained.
-  See `notes/INDIA_SEARCH_TERMS.md`.
+  See `docs/analysis/09_INDIA_SEARCH_TERMS.md`.
 
 ### 7.2 Brand and non-brand bookings together (Adobe, click date)
 

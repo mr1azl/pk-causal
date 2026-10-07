@@ -1,0 +1,30 @@
+segment,period,device,all_conversions,cross_device_conversions,value
+GB country (cut 20 Aug),13 Jun-19 Aug,MOBILE,68.0,53.0,91519.81
+GB country (cut 20 Aug),13 Jun-19 Aug,DESKTOP,21.0,7.0,19630.71
+GB country (cut 20 Aug),20 Aug-1 Sep,MOBILE,6.0,3.0,11808.53
+UK+IE rest,13 Jun-19 Aug,MOBILE,45.0,14.0,33934.18
+UK+IE rest,13 Jun-19 Aug,DESKTOP,22.0,0.0,15449.71
+UK+IE rest,13 Jun-19 Aug,TABLET,1.0,0.0,741.75
+UK+IE rest,20 Aug-1 Sep,MOBILE,6.0,0.0,7180.3
+UK+IE rest,20 Aug-1 Sep,DESKTOP,4.0,3.0,2277.88
+long-haul,13 Jun-19 Aug,MOBILE,157.0,118.0,213958.85
+long-haul,13 Jun-19 Aug,DESKTOP,79.0,14.0,112601.73
+long-haul,13 Jun-19 Aug,TABLET,2.0,0.0,2815.19
+long-haul,20 Aug-1 Sep,MOBILE,13.0,9.0,17487.83
+long-haul,20 Aug-1 Sep,DESKTOP,3.0,0.0,4489.62
+long-haul,2-19 Sep,MOBILE,2.0,0.0,1492.24
+long-haul,2-19 Sep,DESKTOP,3.0,0.0,4187.0
+long-haul,20 Sep-5 Oct,MOBILE,6.0,0.0,3501.55
+long-haul,20 Sep-5 Oct,DESKTOP,13.0,0.0,22576.98
+regional,13 Jun-19 Aug,MOBILE,181.0,168.0,228964.13
+regional,13 Jun-19 Aug,DESKTOP,46.0,30.0,54104.49
+regional,20 Aug-1 Sep,MOBILE,44.0,43.0,69546.9
+regional,20 Aug-1 Sep,DESKTOP,7.0,5.0,7255.0
+regional,2-19 Sep,MOBILE,5.0,5.0,8541.38
+regional,2-19 Sep,DESKTOP,5.0,0.0,6420.43
+regional,20 Sep-5 Oct,MOBILE,6.0,4.0,7773.1
+regional,20 Sep-5 Oct,DESKTOP,2.0,0.0,814.15
+none,13 Jun-19 Aug,MOBILE,7.0,1.0,5141.74
+none,13 Jun-19 Aug,DESKTOP,5.0,0.0,5893.06
+none,2-19 Sep,DESKTOP,5.0,1.0,3375.91
+none,20 Sep-5 Oct,MOBILE,2.0,0.0,1024.39

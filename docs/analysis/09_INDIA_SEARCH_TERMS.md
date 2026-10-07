@@ -2,7 +2,7 @@
 
 *Source: Google Ads search terms reports for India non-brand (1.1M rows, about $343k of search spend shown,
 about 75% of account search cost) and India brand. India has not switched, so every month is pre-launch.
-Script: `scripts/india_search_terms.py`; classified data in `data/india/`. Monthly granularity, cost and clicks
+Script: `scripts/india_search_terms.py`; classified data in `data/search_terms/`. Monthly granularity, cost and clicks
 only (no conversions in the export).*
 
 ## Summary

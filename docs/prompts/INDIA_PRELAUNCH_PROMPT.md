@@ -1,6 +1,6 @@
 # Prompt for the SA360 agent: India pre-launch checks for value-based bidding
 
-*Built from what went wrong or was confounded in PK (`notes/PK_DECISION.md`). Paste the block below.*
+*Built from what went wrong or was confounded in PK (`docs/analysis/08_PK_DECISION.md`). Paste the block below.*
 
 ```
 India pre-launch checks for value-based bidding (VBB). Work in ~/vbb_india_prelaunch/, same rules as

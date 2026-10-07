@@ -1,6 +1,6 @@
 """UK+IE vs the rest by match type, weekly SA360 keyword data (round 4, D4).
 
-Usage: python scripts/pk_d4_match_type.py data/sa360_round4/d4_weekly_keywords.parquet
+Usage: python scripts/pk_d4_match_type.py data/sa360/round4/d4_weekly_keywords.parquet
 
 Note: qr_booking_conversions is all_conversions (attributed, includes cross-device), so levels are
 about 3.5x the transaction ledger. Use it for comparisons between groups and periods only.

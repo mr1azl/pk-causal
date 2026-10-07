@@ -1,6 +1,6 @@
 """What the bidder sees: VBB search value per click and per dollar vs booking revenue, by destination group.
 
-Usage: python scripts/pk_value_per_search.py data/sa360_round3
+Usage: python scripts/pk_value_per_search.py data/sa360/round3
 """
 import os
 import sys

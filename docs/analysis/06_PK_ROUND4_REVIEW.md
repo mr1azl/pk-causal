@@ -1,6 +1,6 @@
 # PK: review of SA360 round 4, and where the cause now points
 
-*7 Oct 2026. Agent output in `sa360_round4/` (FINDINGS.md, LOG.md). Value check in
+*7 Oct 2026. Agent output in `docs/agent_findings/sa360_round4/` (FINDINGS.md, LOG.md). Value check in
 `scripts/pk_value_per_search.py` on the round 3 SA360 tables.*
 
 ## 1. What round 4 settles (accepted)
@@ -93,7 +93,7 @@ With the correction above, no bidding mechanism is established for the UK zero. 
 
 ## 6. D4 weekly keywords: broad vs phrase (added after the correction)
 
-`scripts/pk_d4_match_type.py` on `data/sa360_round4/d4_weekly_keywords.parquet`. Bookings here are
+`scripts/pk_d4_match_type.py` on `data/sa360/round4/d4_weekly_keywords.parquet`. Bookings here are
 `QR_Booking` all_conversions (attributed, about 3.5x the ledger), so only the comparisons matter.
 
 | UK+IE | 1 Jun-16 Aug | 17-30 Aug | 31 Aug-20 Sep | 21 Sep-5 Oct |

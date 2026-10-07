@@ -1,8 +1,8 @@
 # PK: seasonality on Adobe 2025, and what the bidder did (SA360 section C)
 
 *7 Oct 2026. Sources: Adobe v84 for PK, 1 May 2025 to 5 Oct 2026 (`data/adobe/v84_pk_2025-05-01_2026-10-05.parquet`,
-`scripts/pk_seasonality_adobe.py`), and the SA360 agent's section C and C4 (`sa360_round3/FINDINGS.md`,
-`sa360_round3/data/c*.csv`).*
+`scripts/pk_seasonality_adobe.py`), and the SA360 agent's section C and C4 (`docs/agent_findings/sa360_round3/FINDINGS.md`,
+`data/sa360/round3/c*.csv`).*
 
 ## Summary
 
