@@ -19,6 +19,7 @@ Every script prints its tables to stdout; none writes back into `data/` unless a
 | `pk_brand_search_terms.py` | PK brand search terms CSV | Brand queries by destination named. | analysis 08 s7 |
 | `pk_brand_vs_nonbrand.py` | PK Adobe file | Brand vs non-brand bookings and revenue by month, 2025 and 2026. | analysis 08 s7 |
 | `india_search_terms.py` | India non-brand and brand search terms CSVs | Reverse, third-country, generic, agent/OTA and competitor share; brand CPC and leakage. | analysis 09 |
+| `pk_fresh_review.py` | `data/adobe/`, `data/sa360/`, `data/search_terms/` (no arguments) | Every number in the fresh review: periods with cost, seasonality, brand and non-brand, the UK on each booking measure, destination-level expectation, rule vs ML search values, query drift, searches per click, bookings per dollar in four markets, the 20 Aug cut, booking lag. | analysis 10 |
 
 Examples:
 

@@ -95,6 +95,7 @@ docs/
     07_PK_GFS_CHECK.md           Google Flights price, visibility, demand
     08_PK_DECISION.md            the decision note: cause, switchback, India; brand in depth
     09_INDIA_SEARCH_TERMS.md     India query risks before launch
+    10_FRESH_REVIEW.md           independent review of 01 to 09: rebuilt numbers, where they hold, where they do not
   agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
