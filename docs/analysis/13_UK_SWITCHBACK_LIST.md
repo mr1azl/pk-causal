@@ -12,7 +12,7 @@ campaigns with `dest_group == "UK+IE"`.
 
 - 20 of the 60 had little or no spend after the switch. They move anyway, so that GB traffic does not sit under two
   bidding strategies at once.
-- The two GB country campaigns account for 88% of GB spend from Jun to Aug:
+- The two GB country campaigns account for 89% of GB spend from Jun to Aug:
   - `22932501781` `Google|PK|Dest|Country|XXX|GB|EN|MOD`
   - `22922582106` `Google|PK|O&D|Country|PK|GB|EN|MOD`
 
