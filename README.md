@@ -78,7 +78,10 @@ cleanup at least two weeks before, a holdout, and a weekly guardrail per destina
 - **The 2025 comparison** is imperfect: 2025 non-brand spend also fell in September, and 2025 UK campaigns were small
   and cheap.
 - **GFS** has no competitor rows, so a competitor move on PK-UK (for example new direct capacity) cannot be seen.
-- India pre-launch SA360 checks (`docs/prompts/INDIA_PRELAUNCH_PROMPT.md`) have not been run yet.
+- India pre-launch checks are done (`docs/agent_findings/sa360_india_prelaunch/`, reviewed in
+  `docs/analysis/10_INDIA_PRELAUNCH_REVIEW.md`). Blocking: 646 campaign edits in September unexplained; which value
+  signal the portfolios read; whether reverse-direction searchers book (test via the route on VBB `sales` rows).
+- India GCC and Middle East: 169k clicks, 5 Floodlight transactions in 8 weeks; the value signal rates it highly.
 
 ## 5. Repo map and reading order
 
@@ -95,7 +98,8 @@ docs/
     07_PK_GFS_CHECK.md           Google Flights price, visibility, demand
     08_PK_DECISION.md            the decision note: cause, switchback, India; brand in depth
     09_INDIA_SEARCH_TERMS.md     India query risks before launch
-  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY)
+    10_INDIA_PRELAUNCH_REVIEW.md review of the agent's India pre-launch checks; what blocks launch
+  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)

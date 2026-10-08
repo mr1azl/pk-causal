@@ -43,7 +43,7 @@ How to work:
 4. Keep the measurement traps in README section 2 in mind, and do not use "Bookings (FL)" / "Revenue (FL)".
 5. Be explicit about uncertainty: give counts, not only rates, and say how many bookings a conclusion rests on.
 
-Deliver one Markdown file, docs/analysis/10_FRESH_REVIEW.md, with:
+Deliver one Markdown file, docs/analysis/11_FRESH_REVIEW.md, with:
 1. Your answer to each decision question in two or three sentences, and how confident you are.
 2. A table of the main conclusions in README section 3: agree / partly / disagree, with your own number and
    the file or script it came from.
