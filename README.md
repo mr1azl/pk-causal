@@ -91,6 +91,7 @@ guardrail by destination, after the blocking items in analysis 10.
 ```
 README.md                      this file
 docs/
+  VBB_CHECKLIST_NOUVEAU_MARCHE.md  pre-switch checklist for a new market (French)
   analysis/                    my analysis notes, in the order they were written
     01_PK_VBB_DIAGNOSIS.md       first diagnosis, before any raw data (partly superseded)
     02_PK_ADOBE_FRESH_LOOK.md    Adobe click-level analysis; keyword mix; two review rounds with corrections in place
@@ -104,6 +105,7 @@ docs/
     10_INDIA_PRELAUNCH_REVIEW.md review of the agent's India pre-launch checks; what blocks launch
     11_FRESH_REVIEW.md           independent review of 01 to 09 (Fable): rebuilt numbers, where they hold, where they do not
     12_RESPONSE_TO_FRESH_REVIEW.md what the fresh review changes; revised conclusions and next steps
+    13_UK_SWITCHBACK_LIST.md     the 60 GB campaigns to move off VBB, how, and what to expect
   agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
