@@ -76,7 +76,7 @@ The data do not support it.
   - 20 to 26 Sep: max 4.75, p99 2.80, 37% above 0.50;
   - 27 Sep to 5 Oct: max 3.73, p99 1.16, 10% above 0.50.
 
-  Restricted to the 544 campaigns on the VBB portfolio (`biddingStrategies/12222452141`, at least 3 clicks):
+  Restricted to the 543 enabled campaigns on the VBB portfolio (`biddingStrategies/12222452141`, at least 3 clicks):
   - 20 to 26 Sep: max 8.52, 187 campaign-days above 0.60;
   - 27 Sep to 5 Oct: max 4.47, 109 campaign-days above 0.60.
 
