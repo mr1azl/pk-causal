@@ -1,0 +1,8 @@
+dest_group,rows,total_value,value_per_row,fallback_0_50_rows,fallback_pct,zero_rows,zero_pct,fallback_share_of_value_pct
+Europe excl UK+IE,25291,619683.94,24.502,9268,36.65,0,0.0,0.748
+GCC and Middle East,24457,313952.05,12.837,7117,29.1,0,0.0,1.133
+North America,16140,620705.82,38.458,4273,26.47,0,0.0,0.344
+UK+IE,8611,279408.3,32.448,1589,18.45,0,0.0,0.284
+Africa,4048,105055.16,25.952,1142,28.21,0,0.0,0.544
+Oceania,1744,20284.87,11.631,811,46.5,0,0.0,1.999
+other,636,7868.64,12.372,502,78.93,0,0.0,3.19

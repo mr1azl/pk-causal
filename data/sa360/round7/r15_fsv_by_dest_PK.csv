@@ -1,0 +1,5 @@
+market,dest,searches,search_value,sales,sales_value,ratio,vs_median,scale_to_median,flag
+PK,LHE,1114,64721.37,4,3958.47,16.35,1.502,0.666,yes
+PK,LHR,762,56684.31,5,4042.82,14.021,1.288,0.777,no
+PK,JFK,485,64156.22,6,8272.9,7.755,0.712,1.404,no
+PK,KHI,544,24838.72,4,4669.75,5.319,0.489,2.047,no

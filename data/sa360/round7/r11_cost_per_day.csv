@@ -1,0 +1,13 @@
+segment,period,days,cost_per_day,vs_baseline_pct
+UK+IE,13 Jun-19 Aug,68,249.92,0.0
+UK+IE,20 Aug-1 Sep,13,75.84,-69.7
+UK+IE,2-19 Sep,18,50.69,-79.7
+UK+IE,20 Sep-5 Oct,16,37.12,-85.1
+long-haul,13 Jun-19 Aug,68,124.9,0.0
+long-haul,20 Aug-1 Sep,13,77.37,-38.1
+long-haul,2-19 Sep,18,99.64,-20.2
+long-haul,20 Sep-5 Oct,16,143.74,15.1
+regional,13 Jun-19 Aug,68,131.72,0.0
+regional,20 Aug-1 Sep,13,152.84,16.0
+regional,2-19 Sep,18,211.76,60.8
+regional,20 Sep-5 Oct,16,149.9,13.8

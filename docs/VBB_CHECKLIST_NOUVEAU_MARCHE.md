@@ -50,6 +50,12 @@ Légende : **[B]** bloquant, **[R]** recommandé.
     les campagnes pays GB.
 - [ ] **[B] Liste des campagnes du portefeuille exportée**, avec ID, nom, destination, budget et stratégie actuelle.
   C'est la liste de retour arrière prête à l'emploi (voir `docs/analysis/13_uk_switchback_campaigns.csv`).
+- [ ] **[B] Automatisations identifiées et gelées.** En PK, un script Google Ads et un outil interne réécrivent les
+  budgets presque tous les jours, et les listes de négatifs partagées sont recréées tous les quelques jours
+  (round 7). Lister tout script ou outil qui touche aux budgets, enchères ou négatifs, connaître son objectif, et
+  l'exclure des campagnes du test.
+- [ ] **[R] Lire la configuration via l'API Google Ads, pas seulement SA360.** SA360 ne voit ni les termes de
+  recherche, ni `change_status` (90 jours), ni `change_event` (30 jours), ni les listes de négatifs partagées.
 - [ ] **[R] Snapshot de la configuration complète avant le switch** : stratégies, budgets, enchères, ciblage
   géographique, modificateurs, audiences. L'API SA360 ne donne que les valeurs actuelles, pas l'historique, et
   n'expose pas `change_event`. Sans snapshot, on ne peut pas reconstruire l'état d'avant.

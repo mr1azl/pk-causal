@@ -1,0 +1,7 @@
+id,name,account_type,engine_id,currency,time_zone,status,manager,level,hidden,test_account
+4881339235,Google-GCCLI-IN-EN,GOOGLE_ADS,4881339235,USD,Asia/Qatar,ENABLED,False,1,False,False
+4034062923,Google-GCCLI-IN-EN-2,GOOGLE_ADS,4034062923,USD,Asia/Qatar,ENABLED,False,1,False,False
+1580300080,Google-GCCLI-IN-EN-Brand,GOOGLE_ADS,1580300080,USD,Asia/Qatar,ENABLED,False,1,False,False
+2073557592,Bing-SEA_SASC-IN-EN,MICROSOFT,X7376330,USD,Etc/GMT,ENABLED,False,1,False,False
+7590642880,Bing-SEA_SASC-IN-EN-2,MICROSOFT,F12925LU,USD,Europe/Moscow,ENABLED,False,1,False,False
+9168480809,Bing-SEA_SASC-IN-EN-Brand,MICROSOFT,F129H132,USD,Etc/GMT,ENABLED,False,1,False,False

@@ -58,6 +58,19 @@ Findings and logs for each round are in `docs/agent_findings/`. The agent's code
 Saudi Arabia (`e*`), Canada and Malaysia (`f_CA_*`, `f_MY_*`), PK on the same basis (`f_PK_by_period.csv`), and
 `g1_window_reconciliation.csv`, which shows the CA and MY "conversion damage" disappears over the full post window.
 
+### round7/ (PK through the Google Ads API: change log, shared negatives, search terms, VBB order ID, lag)
+Findings in `docs/agent_findings/sa360_round7/`, review in `docs/analysis/15_ROUND7_REVIEW.md`. Main files:
+`r2_change_*` (change_status and change_event by day), `r3_switch_changes_by_group.csv`, `r4_*`/`r6_*` (PK shared
+negative lists and contents), `r7_india_shared_sets.csv`, `r8_unblocked_reverse_terms.csv` (India reverse terms
+not blocked), `r10_*` (PK search terms by segment), `r11_cost_per_day.csv`, `r15_fsv_*` (search value vs booking
+value by searched destination), `r18_*`/`r19_*` (lag curve, window completeness), `r22_*`/`r23_*` (four-market
+calibration and decomposition). Change-event user emails were hashed by the agent; no order IDs or gclids.
+
+### india_prelaunch/ (India non-brand, data behind the pre-launch findings)
+`i0` inventory and spend, `i1` conversion actions and weekly by group, `i2` inflation, `i3` calibration and route
+match, `i4` budgets and headroom, `i5` reverse direction and match type, `i6` portfolios, `i7` holdout and
+guardrails, `i8` target ROAS. Log in `docs/agent_findings/sa360_india_prelaunch/LOG.md`.
+
 ### round8_market_profile/ (13 markets: test power and pairing)
 Largest Google non-brand EN account per market. Launched markets (PK, SA, CA, MY) profiled on 16 Jul to 1 Sep 2026,
 candidates (FR, ES, IT, PL, JP, KR, BR, OM, AE) on 16 Jul to 7 Oct. Protocol in

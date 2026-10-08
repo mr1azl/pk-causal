@@ -202,3 +202,51 @@ conv  = stream(acct, "SELECT segments.date, segments.conversion_action_name, "
 
 Four calls give an agent the account tree, the complete configuration, the auction diagnostics and
 the conversion picture. Everything else is a refinement of those.
+
+---
+
+## Resources and fields confirmed absent, India run, 8 October 2026
+
+Verified by asking `searchAds360Fields:search` for each prefix and getting **zero fields back**,
+which is different from a query error and means the resource does not exist in this API at all.
+
+| resource | fields returned | consequence |
+|---|---|---|
+| `shared_set` | **0** | shared negative keyword lists cannot be read |
+| `shared_criterion` | **0** | nor their contents |
+| `campaign_shared_set` | **0** | nor which campaigns a list is attached to |
+| `search_term_view` | does not exist | no search terms, confirmed again |
+| `change_event` | does not exist | no change log, confirmed again |
+
+Any negative keyword audit done through this API is therefore campaign and ad group level only,
+and can report a gap that a shared list actually covers. Say so whenever you report one.
+
+### Field name traps found in the India run
+
+| what you would write | what the API calls it |
+|---|---|
+| `customer_client.account_type` | does not exist; read `customer.account_type` per account |
+| `conversion.visit_date_time` | `conversion.conversion_visit_date_time` |
+| `conversion.floodlight_original_revenue_micros` | `conversion.floodlight_original_revenue`, **still in micros** |
+| `conversion.conversion_action_name` | `segments.conversion_action_name` |
+| `campaign_budget.id` / `.name` / `.status` | none exist; only `amount_micros`, `delivery_method`, `period`, `resource_name` |
+
+`customer_client` exposes 12 fields and `conversion` exposes 24. `campaign_budget` exposes 4, so
+budgets have no human readable name and must be keyed off the resource name.
+
+### Filtering on a segment requires selecting it
+`FROM conversion WHERE segments.conversion_action_name = '...'` fails with
+`EXPECTED_REFERENCED_FIELD_IN_SELECT_CLAUSE` unless the same segment is also in the SELECT.
+
+### Personal data hazard in `conversion.floodlight_order_id`
+On the QR Floodlight search tags the order ID has the shape
+`type - origin - destination - tail`, and **when the OND is missing the tail shifts left**, so the
+field that normally holds a destination can hold a GA client ID beginning `GA1.`. Never store the
+order ID whole. Parse positionally, accept an OND token only when it matches three lowercase
+letters, hash or drop the rest, then grep the output for `GA1.` before trusting it.
+
+### What that order ID makes possible
+It carries the route the user actually searched, so search value credited to a campaign can be
+checked against the campaign's own destination without a search terms report. That is the one
+route-level question this API can answer, and it is how the India run measured reverse-direction
+traffic directly rather than inferring it.

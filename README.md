@@ -59,8 +59,9 @@ Full argument: `docs/analysis/08_PK_DECISION.md`, as revised by `docs/analysis/1
 | Total PK paid search bookings rose 3% Aug to Sep 2026 (-24% in 2025). True of the account, **not evidence for VBB**: brand rose in all six markets, the 2025 baseline contains the brand rebuild, non-brand bookings per $ fell 9% (rose 62% in Sep 2025). | High (as description) | analysis 11 s4.2, 12 |
 | Outside the UK, no measurable VBB effect either way: per $ bookings -13% / revenue -34% vs Jun-Aug, +10% / -6% vs the cut fortnight, on 36 bookings. Per-click "improvement" was a CPC artefact. | Medium | analysis 11 s3.1, 12 |
 | The UK loss is GB: 0 bookings against 4.5 expected (p 0.011) after the switch; Ireland normal. It rests on one last-click record (Adobe = ledger = QR_Booking); the Google tag shows no drop in 2-19 Sep. | Medium-low | analysis 11 s3.4, 4.1 |
-| Not seasonality, user location, device, campaign edits, location settings or keyword choice. Brand migration and a channel shift of GB bookings are **untested**. | High / untested | SA360 rounds 3-4, Adobe 2025, analysis 11 s4.4 |
+| Not seasonality, user location, device, campaign edits, location settings or keyword choice. Brand migration and a channel shift of GB bookings are **untested**. | High / untested | SA360 rounds 3-4, Adobe 2025, analysis 11 s4.4, round 7 change log (analysis 15) |
 | The rule-based search values over-rate UK relative to bookings (5.0 vs 3.8 long-haul, 2.9 regional); the ML values recorded in the same account are calibrated (2.2 / 2.4 / 2.0). Query drift and GFS do not explain the GB loss. | High (values) / mechanism untested | analysis 11 s4.3, 12 |
+| No CPC cap was set on 20 Sep: campaign CPCs of 1 to 4 continue after it, and the GB zero (2-19 Sep) predates it. Budgets are rewritten almost daily by a Google Ads script and an internal tool, owner and logic unknown. | High (no cap) / open (automation) | analysis 15 |
 | The CPC spike and budget-limited serving are the switch's learning period; no market had a target, so "no target" is the likely lever, not a demonstrated cause. | Medium | analysis 11 s4.5 |
 | On Adobe orders per $, VBB was positive in CA (+38%) and MY (+203%), negative in SA (-21%), flat in PK (+2%). | Medium | analysis 11 s5 |
 | "CA -26% / MY -29% conversion damage" is an artefact of the last 16 days of attributed conversions. | High | agent's `g1`, analysis 11 |
@@ -107,13 +108,14 @@ docs/
     12_RESPONSE_TO_FRESH_REVIEW.md what the fresh review changes; revised conclusions and next steps
     13_UK_SWITCHBACK_LIST.md     the 60 GB campaigns to move off VBB, how, and what to expect
     14_ROUND8_PAIRING_REVIEW.md  review of round 8 (13-market profiles, test power, pairing): power holds, priors do not
-  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch; 8: market profiles)
+    15_ROUND7_REVIEW.md          review of round 7 (Google Ads API) and the India handover: no 20 Sep cap; budget automation
+  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; 7: PK via Google Ads API; India pre-launch; 8: market profiles)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)
 data/                          all data, see data/README.md
 scripts/                       analysis scripts, see scripts/README.md
-agent_code/sa360/              the SA360 agent's round 3 code
+agent_code/                    the agent's code: sa360/ (round 3), round7/, india_prelaunch/
 sql/, notebooks/               GFS queries and notebook; the Adobe pull notebook
 ```
 

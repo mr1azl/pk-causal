@@ -34,7 +34,10 @@ $4 a day), and keeping it on VBB leaves a small comparison group. This narrows t
 3. **Budget:** a separate budget of about **$60-70 a day**, which matches GB spend under VBB ($61 a day). Leave the
    other campaigns on the $490 shared budget, reduced by the same amount. If GB stays on the shared budget, the two
    strategies compete for the same money and the test cannot be read.
-4. **Rest of PK:** stays on VBB. Add a target ROAS or a CPC cap, and use `QR_FlightSearch_VBB_ML` if the portfolio
+4. **Budget automation:** a Google Ads script and an internal tool rewrite PK budgets almost daily (round 7,
+   `15_ROUND7_REVIEW.md`). Exclude the new GB budget from them, or agree with their owner that it will not be
+   touched, or the test is not controlled.
+5. **Rest of PK:** stays on VBB. Add a target ROAS or a CPC cap, and use `QR_FlightSearch_VBB_ML` if the portfolio
    allows it.
 
 ## What to expect, honestly

@@ -1,0 +1,5 @@
+booking_rate_vs_baseline_pct,destinations_tested,market,max_ratio,mean_sale_value,mean_search_value,median_ratio,min_ratio,ratio_base,ratio_ml,sales,sales_value,search_value,searches,spread_max_over_min,spread_p90_over_p10
+-63,4,PK,16.35,1141.84,33.47,10.89,5.32,15.22,8.78,53,60517.31,920849.73,27511,3.1,3.07
+,15,IN,89.51,1025.96,25.55,18.16,1.45,26.89,17.84,135,138504.2,3724109.65,145772,61.8,9.1
+-26,28,CA,11.81,1682.95,46.46,3.7,0.34,4.74,3.1,305,513300.9,2434527.15,52402,34.9,8.69
+,33,DE,18.25,1188.39,55.46,5.4,1.13,4.79,3.07,258,306604.73,1469843.88,26501,16.2,4.33
