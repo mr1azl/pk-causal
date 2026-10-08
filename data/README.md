@@ -58,6 +58,18 @@ Findings and logs for each round are in `docs/agent_findings/`. The agent's code
 Saudi Arabia (`e*`), Canada and Malaysia (`f_CA_*`, `f_MY_*`), PK on the same basis (`f_PK_by_period.csv`), and
 `g1_window_reconciliation.csv`, which shows the CA and MY "conversion damage" disappears over the full post window.
 
+### round8_market_profile/ (13 markets: test power and pairing)
+Largest Google non-brand EN account per market. Launched markets (PK, SA, CA, MY) profiled on 16 Jul to 1 Sep 2026,
+candidates (FR, ES, IT, PL, JP, KR, BR, OM, AE) on 16 Jul to 7 Oct. Protocol in
+`docs/agent_findings/sa360_round8_market_profile/`, review in `docs/analysis/14_ROUND8_PAIRING_REVIEW.md`.
+| File | What it is |
+|---|---|
+| `s1_accounts.csv` | Account chosen per market, 12-week cost and clicks. |
+| `s3_market_profile.csv` | 12-week profile: CPC percentiles and dispersion, rank and budget lost, impression share, VBB searches, ledger bookings, cross-device share, attributed/ledger inflation. `outcome_pct` is the round 6 label (see review: not reliable). |
+| `s4_prelaunch_profile.csv` | Same dimensions on the pre-switch window, used for pairing and power. |
+| `s5_power.csv` | Weeks to read a 30% drop (80% power, 5% two-sided), 50/50 vs 20% holdout, plus 4 weeks of learning and lag. |
+| `s6_pairings.csv` | Distance of each candidate to each launched market, nearest and second nearest, ratio. |
+
 ## search_terms/ : Google Ads UI search terms reports, May to 7 Oct 2026
 
 Monthly, cost and clicks only (the export has no conversions). Total rows removed.

@@ -87,6 +87,14 @@ Légende : **[B]** bloquant, **[R]** recommandé.
   Donner des nombres, pas seulement des taux.
 - [ ] **[B] Calcul du volume attendu.** Combien de réservations par semaine par groupe ? Sous 5 par semaine, un
   groupe ne sera pas lisible avant/après. En PK, la perte GB repose sur 0 réservation observée contre 4,5 attendues.
+- [ ] **[B] Seuils de volume (round 8).** Pour lire une baisse de 30 % (puissance 80 %, 5 % bilatéral), il faut
+  environ 150 réservations dans le bras témoin, plus 2 semaines d'apprentissage et 2 semaines de queue.
+  - Moins de 5 réservations par semaine (registre) : pas de test, décision sur garde-fous.
+  - De 5 à 15 par semaine : test au niveau du compte seulement.
+  - Plus de 15 par semaine : lecture possible sur les 2 ou 3 plus gros groupes.
+
+  Ces durées sont un minimum : les campagnes ne sont pas indépendantes.
+  Détail : `docs/analysis/14_ROUND8_PAIRING_REVIEW.md`.
 - [ ] **[B] Critère de succès et règle de retour arrière écrits avant le switch.** Exemple : "réservations Adobe
   par $ du groupe X inférieures de plus de 40 % à la base pendant 3 semaines après apprentissage, alors retour sur
   ce groupe".
@@ -96,9 +104,13 @@ Légende : **[B]** bloquant, **[R]** recommandé.
 ## 7. Plan de test
 
 - [ ] **[B] Un groupe témoin.** Il faut un témoin pour attribuer un effet au switch. Par ordre de préférence :
-  1. Holdout de campagnes ou de destinations comparables, restées sur l'ancienne stratégie.
+  1. Split **50/50** de campagnes appariées (même groupe de destinations, dépense proche), et non un holdout à
+     20 % : à 20 %, il faut 1,4 fois plus de semaines pour la même réponse.
   2. Expérience Google Ads (split de campagnes).
   3. Marché comparable non switché, en dernier recours.
+
+  Ne pas utiliser le résultat d'un marché "apparié" comme prior : les résultats des marchés lancés dépendent de la
+  fenêtre et de la mesure (SA vaut +20 % sur le round 6, -21 % en commandes Adobe par $).
 
   La marque ne convient pas comme témoin, et ne doit pas l'être (c'était le témoin du Causal Impact PK).
 - [ ] **[R] Switch progressif.** Commencer par les groupes bien calibrés et garder sur l'ancienne stratégie les

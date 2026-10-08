@@ -1,0 +1,14 @@
+market,launched,bookings_per_week,weeks_5050,weeks_20pct_holdout,total_weeks_5050_with_lag_and_learning,verdict
+CA,yes,63.7,4.7,6.6,8.7,readable in a quarter
+SA,yes,22.5,13.3,18.6,17.3,readable in about two quarters
+MY,yes,19.5,15.4,21.5,19.4,readable in about two quarters
+AE,no,19.0,15.8,22.0,19.8,readable in about two quarters
+PK,yes,16.2,18.5,25.8,22.5,"a year, group level impossible"
+OM,no,12.6,23.8,33.2,27.8,"a year, group level impossible"
+FR,no,12.3,24.4,34.0,28.4,"a year, group level impossible"
+ES,no,8.7,34.4,48.1,38.4,"a year, group level impossible"
+BR,no,5.2,57.6,80.5,61.6,"NOT READABLE, do not run a test"
+IT,no,4.7,63.8,89.1,67.8,"NOT READABLE, do not run a test"
+PL,no,3.3,90.8,126.9,94.8,"NOT READABLE, do not run a test"
+KR,no,1.7,176.3,246.3,180.3,"NOT READABLE, do not run a test"
+JP,no,1.1,272.4,380.6,276.4,"NOT READABLE, do not run a test"

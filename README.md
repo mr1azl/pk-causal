@@ -106,7 +106,8 @@ docs/
     11_FRESH_REVIEW.md           independent review of 01 to 09 (Fable): rebuilt numbers, where they hold, where they do not
     12_RESPONSE_TO_FRESH_REVIEW.md what the fresh review changes; revised conclusions and next steps
     13_UK_SWITCHBACK_LIST.md     the 60 GB campaigns to move off VBB, how, and what to expect
-  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch)
+    14_ROUND8_PAIRING_REVIEW.md  review of round 8 (13-market profiles, test power, pairing): power holds, priors do not
+  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch; 8: market profiles)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)
