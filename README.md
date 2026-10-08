@@ -49,9 +49,10 @@ Other traps, each of which misled an earlier read:
 5. **Impression share clamps** at 10% and 90%. **SA360 attributes are current values, not history.**
 6. **Rule-based "value per search"** can be joined to the route searched, not to the campaign.
 
-## 3. Current conclusions (7 Oct 2026)
+## 3. Current conclusions (revised 8 Oct 2026)
 
-Full argument: `docs/analysis/08_PK_DECISION.md`.
+Full argument: `docs/analysis/08_PK_DECISION.md`, as revised by `docs/analysis/11_FRESH_REVIEW.md` and
+`docs/analysis/12_RESPONSE_TO_FRESH_REVIEW.md`.
 
 | Conclusion | Confidence | Main evidence |
 |---|---|---|
@@ -101,9 +102,9 @@ docs/
     08_PK_DECISION.md            the decision note: cause, switchback, India; brand in depth
     09_INDIA_SEARCH_TERMS.md     India query risks before launch
     10_INDIA_PRELAUNCH_REVIEW.md review of the agent's India pre-launch checks; what blocks launch
-  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch)
     11_FRESH_REVIEW.md           independent review of 01 to 09 (Fable): rebuilt numbers, where they hold, where they do not
     12_RESPONSE_TO_FRESH_REVIEW.md what the fresh review changes; revised conclusions and next steps
+  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; India pre-launch)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
   prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)
@@ -113,7 +114,8 @@ agent_code/sa360/              the SA360 agent's round 3 code
 sql/, notebooks/               GFS queries and notebook; the Adobe pull notebook
 ```
 
-Suggested reading for a fresh review: this README, then `docs/analysis/08_PK_DECISION.md`, then
+Suggested reading for a fresh review: this README, then `docs/analysis/08_PK_DECISION.md`, `11_FRESH_REVIEW.md` and
+`12_RESPONSE_TO_FRESH_REVIEW.md`, then
 `docs/source_material/VBB_Rollout_Readiness_readout.html` (what was claimed) and the reviews, then the data.
 
 ## 6. Notes for a fresh reviewer
