@@ -54,6 +54,11 @@ Round 7 reads the PK account through the Google Ads API, which gives what SA360 
 
 ## 2. Rejected: the "20 Sep CPC cap" mechanism
 
+The Google Ads API is the better source, and everything in section 1 rests on it. The cap is the exception: it was
+not read from the Google Ads data. The change log shows no bid strategy change on 20 Sep, and the agent inferred
+the cap from the CPC flattening. The decisive check is a single read of the current portfolio setting at MCC level:
+`bidding_strategy.maximize_conversion_value.cpc_bid_ceiling_micros` for `12222452141` (request 2 below).
+
 Round 7's headline:
 - UK auctions clear at 1.04 while the rest of PK clears at 0.17 to 0.24;
 - a CPC cap set on 20 Sep "flattened everything to about 0.42";
@@ -71,7 +76,12 @@ The data do not support it.
   - 20 to 26 Sep: max 4.75, p99 2.80, 37% above 0.50;
   - 27 Sep to 5 Oct: max 3.73, p99 1.16, 10% above 0.50.
 
-  A bid ceiling near 0.42 cannot produce average CPCs of 1 to 4 on a campaign-day. Daily CPC falls gradually from
+  Restricted to the 544 campaigns on the VBB portfolio (`biddingStrategies/12222452141`, at least 3 clicks):
+  - 20 to 26 Sep: max 8.52, 187 campaign-days above 0.60;
+  - 27 Sep to 5 Oct: max 4.47, 109 campaign-days above 0.60.
+
+  A bid ceiling near 0.42 cannot produce average CPCs of 1 to 4 on a campaign-day. Cost and clicks are the same
+  numbers in SA360 and Google Ads, so this does not depend on which API was used. Daily CPC falls gradually from
   about 14 Sep to 26 Sep, which looks like the end of the learning period, not a step.
 - **The GB zero predates 20 Sep.** UK+IE had 0 Adobe bookings in 2 to 19 Sep (`11_FRESH_REVIEW.md` s3.1). Nothing
   set on 20 Sep can explain it.
@@ -143,8 +153,9 @@ mechanism, as `12_RESPONSE` already says.
 ## 6. Requests
 
 1. The owner and logic of the Google Ads script and internal tool that rewrite PK budgets daily.
-2. MCC-level change history for the PK portfolio (`biddingStrategies/12222452141`) around 20 Sep, to settle the cap
-   question for good.
+2. From the MCC, through the Google Ads API: `bidding_strategy.maximize_conversion_value.cpc_bid_ceiling_micros`
+   and `target_roas` for the PK portfolio (`12222452141`), plus its `change_status` rows around 20 Sep. If a ceiling
+   is set, its value settles the cap question; section 2 is revised if it is near 0.42.
 3. ML vs base search value by destination group in PK from the VBB search rows (round 7b script, grouped like
    `11` s4.3).
 4. GB bookings by channel in Adobe, still outstanding from `12_RESPONSE`.
