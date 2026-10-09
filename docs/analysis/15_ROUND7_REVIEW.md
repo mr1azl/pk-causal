@@ -35,16 +35,24 @@ Round 7 reads the PK account through the Google Ads API, which gives what SA360 
    - Without a target ROAS this has no effect.
    - With a target, it decides everything. A target must come from the realised return on whichever signal the
      portfolio reads, never from booking economics.
-4. **An automated process rewrites budgets almost daily.** `CAMPAIGN_BUDGET/UPDATE` events appear on 24 of 29
-   days, via Google Ads scripts and an internal tool. This is the most important operational finding:
-   - any budget set for a test (including the GB switchback in `13`) can be overwritten;
-   - it probably explains the 20 Aug budget event (545 budget changes that day).
+4. **An automated process rewrites budgets daily.** `CAMPAIGN_BUDGET/UPDATE` events appear on every one of the 24
+   days the `change_event` pull actually covered, via Google Ads scripts and an internal tool. The 5 missing days
+   are the Tuesdays the weekly query windows skipped (see item 5), not quiet days. This is the most important
+   operational finding: any budget set for a test (including the GB switchback in `13`) can be overwritten.
 
    Who owns this automation, and what it optimises for, is now an open question for PK.
-5. **Round 4's "no keyword modified" rested on `last_modified_time`, which keeps only the last edit.**
-   `change_status` shows 3,737 criteria changed on 20 Aug and 3,300 on 3 Sep. These are spread across segments in
-   proportion to size, so the conclusion that no UK-specific structural edit was made still stands. Only its
-   evidence changes.
+5. **Round 4's "no keyword modified" rested on `last_modified_time`, which keeps only the last edit.** That
+   criticism is right. **But the `change_status` daily counts cannot date anything either** (corrected 9 Oct,
+   after a second reader's check), so I withdraw the "3,737 criteria on 20 Aug, 3,300 on 3 Sep" dating and the
+   link to the 20 Aug budget event. In `r02_changes.py` and `r2_change_status_by_day.csv`:
+   - the 7-day windows filter `<= 'end date'`, which stops at midnight, so the last day of every window (a
+     Friday) was never queried; no Friday appears in the output;
+   - the first five windows return exactly 10,000 rows, the query `LIMIT`, so they are truncated;
+   - counts pile onto Thursdays (36,082 of 77,121 rows), including 20 Aug, 27 Aug and 3 Sep;
+   - `change_status` holds the latest change per resource, not a log of events.
+
+   Round 4's conclusion (no UK-specific structural edit) still stands, on the proportional spread across segments.
+   The dates do not.
 6. **India negatives.** Every campaign carries shared lists, but those lists block only 13.6% of reverse-direction
    spend ($584 of $4,301 in 4 weeks), because the reverse negatives are brand-qualified. This corrects the
    wording in the India findings ("no reverse-direction negative"); the recommendation to add generic reverse
@@ -98,6 +106,25 @@ The data do not support it.
   a ceiling.
 - **"Rank lost at zero means barely entering auctions" is wrong.** UK+IE impression share was 55% in 20 Sep to
   5 Oct (round 3).
+
+- **The lost bookings are not the lost spend** (added 9 Oct). Split of the GB campaigns, SA360 cost and Adobe
+  bookings by click day (`13_uk_switchback_campaigns.csv`, `pk_nb_traffic_2026.parquet`):
+
+| Segment | Cost/day Jun-Aug | Cut fortnight | 2 Sep-5 Oct | CPC Jun-Aug / cut / 2-19 Sep / 20 Sep-5 Oct | Bookings Jun-Aug / cut / after | Expected after |
+|---|---:|---:|---:|---|---|---:|
+| 2 GB country campaigns | $419 | $53 | $16 | 1.41 / 0.53 / 1.66 (whole post) | 16 / 4 / 0 | 0.3 |
+| 58 other GB campaigns | $51 | $58 | $46 | 0.42 / 0.39 / 2.22 / 0.40 | 21 / 5 / 0 | 5.5 (per click) to 9 (per $) |
+| 10 Ireland campaigns | $5 | $4 | $4 | 0.27 / 0.31 / 0.65 (whole post) | 7 / 2 / 1 | 1 to 3 |
+
+  - The spend collapse is the two GB country campaigns, cut on 20 Aug, which cost about $1,780 per booking; their
+    loss explains almost none of the gap.
+  - The 58 other GB campaigns kept their spend and, after 20 Sep, their CPC (0.40, against 0.42 before), and
+    booked 0 against about 5.5 expected even on a per-click basis (Poisson p about 0.004).
+  - So no ceiling at 0.42 could have bound them, and the problem is what VBB buys in GB, not how much it spends.
+    The mechanism behind that (which queries, which users) is still not shown.
+- **Round 7's spend table is search-term cost**, which covers 51% to 73% of SA360 cost by segment and period. On
+  full cost, long-haul (237 against 242 a day) and regional (206 against 216) are back at baseline, not 14% to 15%
+  above it.
 
 The round 3 chain (no target, shared budget, CPC spike, budget-limited serving) is unaffected by this. "Lift the
 cap on UK+IE" is moot. Moving the GB campaigns off the portfolio onto their own budget (`13`) is still the action.
