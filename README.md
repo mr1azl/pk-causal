@@ -49,42 +49,50 @@ Other traps, each of which misled an earlier read:
 5. **Impression share clamps** at 10% and 90%. **SA360 attributes are current values, not history.**
 6. **Rule-based "value per search"** can be joined to the route searched, not to the campaign.
 
-## 3. Current conclusions (7 Oct 2026)
+## 3. Current conclusions (revised 8 Oct 2026)
 
-Full argument: `docs/analysis/08_PK_DECISION.md`.
+Full argument: `docs/analysis/08_PK_DECISION.md`, as revised by `docs/analysis/11_FRESH_REVIEW.md` and
+`docs/analysis/12_RESPONSE_TO_FRESH_REVIEW.md`.
 
 | Conclusion | Confidence | Main evidence |
 |---|---|---|
-| Total PK paid search held up in September 2026: bookings +3% Aug to Sep, against -24% in 2025 (brand beat its seasonal pattern; non-brand fell about as every September). | Medium-high | Adobe, analysis 08 s7 |
-| Outside the UK, PK non-brand bookings held through the switch and improved per click. | Medium-high | Adobe click date; Google `Booking` tag |
-| The UK fall is real and UK-specific: about -50% bookings per click on the Google tag; about 1 booking against 5 expected on Adobe and the ledger. | Medium | Adobe, ledger, Google tag, 2025 control |
-| Not seasonality, not tracking, not user location, device, campaign edits, location settings, keyword choice or brand migration. | High for each | SA360 rounds 3-4, Adobe 2025, search terms, brand search terms |
-| Likely drivers of the UK fall: the UK search value is the most inflated relative to booking value (5.7 vs 3.0 regional); UK campaigns now buy reverse-direction and generic queries (off-target 6% in Aug to 22-28% in Sep-Oct); QR's Google Flights position on PK-UK weakened from mid-August. | Medium-low: consistent with the data, not tested directly | analysis 06-08 |
-| The CPC spike (2 to 7 times) and budget-limited serving after the switch come from bidding with no ROAS target. Seen in all four markets. | High | SA360 rounds 3, 5, 6 |
-| "CA -26% / MY -29% conversion damage" is an artefact of using the last 16 days of attributed conversions. | High | agent's own `g1` reconciliation |
+| Total PK paid search bookings rose 3% Aug to Sep 2026 (-24% in 2025). True of the account, **not evidence for VBB**: brand rose in all six markets, the 2025 baseline contains the brand rebuild, non-brand bookings per $ fell 9% (rose 62% in Sep 2025). | High (as description) | analysis 11 s4.2, 12 |
+| Outside the UK, no measurable VBB effect either way: per $ bookings -13% / revenue -34% vs Jun-Aug, +10% / -6% vs the cut fortnight, on 36 bookings. Per-click "improvement" was a CPC artefact. | Medium | analysis 11 s3.1, 12 |
+| The UK loss is GB: 0 bookings against 4.5 expected (p 0.011) after the switch; Ireland normal. It rests on one last-click record (Adobe = ledger = QR_Booking); the Google tag shows no drop in 2-19 Sep. | Medium-low | analysis 11 s3.4, 4.1 |
+| Not seasonality, user location, device, campaign edits, location settings or keyword choice. Brand migration and a channel shift of GB bookings are **untested**. | High / untested | SA360 rounds 3-4, Adobe 2025, analysis 11 s4.4, round 7 change log (analysis 15) |
+| The rule-based search values over-rate UK relative to bookings (5.0 vs 3.8 long-haul, 2.9 regional); the ML values recorded in the same account are calibrated (2.2 / 2.4 / 2.0). Query drift and GFS do not explain the GB loss. | High (values) / mechanism untested | analysis 11 s4.3, 12 |
+| No CPC cap was set on 20 Sep: campaign CPCs of 1 to 4 continue after it, and the GB zero (2-19 Sep) predates it. Budgets are rewritten almost daily by a Google Ads script and an internal tool, owner and logic unknown. | High (no cap) / open (automation) | analysis 15 |
+| The CPC spike and budget-limited serving are the switch's learning period; no market had a target, so "no target" is the likely lever, not a demonstrated cause. | Medium | analysis 11 s4.5 |
+| On Adobe orders per $, VBB was positive in CA (+38%) and MY (+203%), negative in SA (-21%), flat in PK (+2%). | Medium | analysis 11 s5 |
+| "CA -26% / MY -29% conversion damage" is an artefact of the last 16 days of attributed conversions. | High | agent's `g1`, analysis 11 |
 
-**Recommendation:** do not switch PK back wholesale. Add a target ROAS (or a CPC limit), fix the UK (recalibrate
-UK search values or move UK campaigns to a booking-based goal), add reverse-direction and generic negatives, and
-measure on the ledger or Adobe. For India: launch with a ROAS target, value calibration by destination, query
-cleanup at least two weeks before, a holdout, and a weekly guardrail per destination group.
+**Recommendation (revised 8 Oct, see `docs/analysis/12_RESPONSE_TO_FRESH_REVIEW.md`):** move the UK+IE campaigns
+back to the previous strategy on their own budget for three weeks (fix and test in one); keep the rest on VBB with a
+target ROAS or CPC cap; switch the value signal to `QR_FlightSearch_VBB_ML` if the portfolio allows; check GB
+bookings by channel. India: a measured test with ML or calibrated values, a target ROAS, a holdout and an Adobe
+guardrail by destination, after the blocking items in analysis 10.
 
 ## 4. Open questions, and where this could be wrong
 
 - **No direct test of the UK mechanism.** The decisive test is an experiment: UK campaigns back on the old strategy
   for 2 to 3 weeks. Without it, the UK drivers above are an explanation that fits, not a proof.
-- **The UK effect rests on few bookings.** About 5 expected on Adobe. The Google tag (more volume) says about half.
+- **The UK effect rests on few bookings.** About 5 expected on Adobe, 1 seen; the Google tag shows no drop in 2-19 Sep.
 - **Brand in September 2026** converted unusually well and its CPC rose 27% to 44% (PK `Brand|Hero` +27% is not
   mirrored in India). Not explained; needs brand impression share and auction insights.
 - **The 2025 comparison** is imperfect: 2025 non-brand spend also fell in September, and 2025 UK campaigns were small
   and cheap.
 - **GFS** has no competitor rows, so a competitor move on PK-UK (for example new direct capacity) cannot be seen.
-- India pre-launch SA360 checks (`docs/prompts/INDIA_PRELAUNCH_PROMPT.md`) have not been run yet.
+- India pre-launch checks are done (`docs/agent_findings/sa360_india_prelaunch/`, reviewed in
+  `docs/analysis/10_INDIA_PRELAUNCH_REVIEW.md`). Blocking: 646 campaign edits in September unexplained; which value
+  signal the portfolios read; whether reverse-direction searchers book (test via the route on VBB `sales` rows).
+- India GCC and Middle East: 169k clicks, 5 Floodlight transactions in 8 weeks; the value signal rates it highly.
 
 ## 5. Repo map and reading order
 
 ```
 README.md                      this file
 docs/
+  VBB_CHECKLIST_NOUVEAU_MARCHE.md  pre-switch checklist for a new market (French)
   analysis/                    my analysis notes, in the order they were written
     01_PK_VBB_DIAGNOSIS.md       first diagnosis, before any raw data (partly superseded)
     02_PK_ADOBE_FRESH_LOOK.md    Adobe click-level analysis; keyword mix; two review rounds with corrections in place
@@ -95,17 +103,24 @@ docs/
     07_PK_GFS_CHECK.md           Google Flights price, visibility, demand
     08_PK_DECISION.md            the decision note: cause, switchback, India; brand in depth
     09_INDIA_SEARCH_TERMS.md     India query risks before launch
-  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY)
+    10_INDIA_PRELAUNCH_REVIEW.md review of the agent's India pre-launch checks; what blocks launch
+    11_FRESH_REVIEW.md           independent review of 01 to 09 (Fable): rebuilt numbers, where they hold, where they do not
+    12_RESPONSE_TO_FRESH_REVIEW.md what the fresh review changes; revised conclusions and next steps
+    13_UK_SWITCHBACK_LIST.md     the 60 GB campaigns to move off VBB, how, and what to expect
+    14_ROUND8_PAIRING_REVIEW.md  review of round 8 (13-market profiles, test power, pairing): power holds, priors do not
+    15_ROUND7_REVIEW.md          review of round 7 (Google Ads API) and the India handover: no 20 Sep cap; budget automation
+  agent_findings/              the SA360 agent's own FINDINGS and LOG per round (3: PK; 4: PK; 5: SA; 6: CA, MY; 7: PK via Google Ads API; India pre-launch; 8: market profiles)
   reviews/                     reviews pasted into the chat (user, earlier model) and the user's correction
-  prompts/                     prompts given to the agents (data requests, India pre-launch)
+  prompts/                     prompts: agent data requests, India pre-launch, fresh review
   source_material/             documents the investigation started from (readout, handovers, API and GFS guides)
 data/                          all data, see data/README.md
 scripts/                       analysis scripts, see scripts/README.md
-agent_code/sa360/              the SA360 agent's round 3 code
+agent_code/                    the agent's code: sa360/ (round 3), round7/, india_prelaunch/
 sql/, notebooks/               GFS queries and notebook; the Adobe pull notebook
 ```
 
-Suggested reading for a fresh review: this README, then `docs/analysis/08_PK_DECISION.md`, then
+Suggested reading for a fresh review: this README, then `docs/analysis/08_PK_DECISION.md`, `11_FRESH_REVIEW.md` and
+`12_RESPONSE_TO_FRESH_REVIEW.md`, then
 `docs/source_material/VBB_Rollout_Readiness_readout.html` (what was claimed) and the reviews, then the data.
 
 ## 6. Notes for a fresh reviewer

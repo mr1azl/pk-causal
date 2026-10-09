@@ -1,5 +1,9 @@
 # India search terms (non-brand and brand), May to 7 Oct 2026: risks before a VBB launch
 
+> **Correction (8 Oct):** `AUS` in `Dest|City|XXX|AUS` is Austin, Texas, not Australia (SA360 India pre-launch
+> findings); it is counted under Oceania below and should be North America. Its traffic is mostly misdirected
+> Australia searches. See `docs/analysis/10_INDIA_PRELAUNCH_REVIEW.md`.
+
 *Source: Google Ads search terms reports for India non-brand (1.1M rows, about $343k of search spend shown,
 about 75% of account search cost) and India brand. India has not switched, so every month is pre-launch.
 Script: `scripts/india_search_terms.py`; classified data in `data/search_terms/`. Monthly granularity, cost and clicks

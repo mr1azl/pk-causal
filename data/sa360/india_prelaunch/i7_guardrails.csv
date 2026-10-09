@@ -1,0 +1,8 @@
+dest_group,weeks,clicks_8w,ledger_bookings_8w,ledger_mean_per_1k,ledger_lower_bound_90pct,attributed_bookings_8w,attributed_mean_per_1k,attributed_lower_bound_90pct,weekly_ledger_rates,usable
+GCC and Middle East,9,169236,5,0.03,0.014,226.0,1.335,1.223,0.12 0.08 0.00 0.06 0.10 0.00 0.00 0.00 0.00,"no, under 10 bookings in 8 weeks"
+Europe excl UK+IE,9,151647,49,0.323,0.266,310.0,2.044,1.897,0.25 0.43 1.28 0.07 0.40 0.44 0.16 0.08 0.19,yes
+North America,9,112065,58,0.518,0.433,264.0,2.356,2.172,0.54 0.89 0.76 0.39 0.37 0.19 0.48 0.33 0.81,yes
+UK+IE,9,58391,24,0.411,0.308,130.0,2.226,1.98,0.94 0.98 0.15 0.00 0.71 0.41 0.12 0.51 0.00,yes
+Africa,9,24711,2,0.081,0.022,48.0,1.942,1.593,0.00 0.00 0.00 0.00 0.00 0.37 0.00 0.19 0.00,"no, under 10 bookings in 8 weeks"
+Oceania,9,11805,1,0.085,0.009,31.0,2.626,2.043,1.05 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00,"no, under 10 bookings in 8 weeks"
+other,9,3899,1,0.256,0.027,13.0,3.334,2.217,0.00 0.00 0.00 0.00 1.92 0.00 0.00 0.00 0.00,"no, under 10 bookings in 8 weeks"

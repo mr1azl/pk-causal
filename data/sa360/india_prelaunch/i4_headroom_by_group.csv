@@ -1,0 +1,8 @@
+dest_group,campaigns,cost_4w,rank_lost_cost_weighted,budget_lost_cost_weighted,cpc_spike_risk_cost_weighted
+North America,62,16858.84,19.33,17.5,1.314
+Africa,36,3742.04,20.36,12.61,0.994
+Europe excl UK+IE,141,23376.47,23.21,16.2,0.967
+Oceania,8,1871.81,17.38,17.14,0.957
+GCC and Middle East,44,26717.84,25.42,25.13,0.943
+UK+IE,48,8420.52,22.2,16.99,0.925
+other,5,442.35,24.32,14.21,0.887

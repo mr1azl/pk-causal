@@ -1,0 +1,5 @@
+market,mean_search_value,mean_sale_value,value_ratio,searches_per_sale,search_to_sale_rate_pct,inflation_ratio
+PK,33.47,1141.84,0.02931,519.1,0.193,15.22
+IN,25.55,1025.96,0.0249,1079.8,0.093,26.89
+CA,46.46,1682.95,0.02761,171.8,0.582,4.74
+DE,55.46,1188.39,0.04667,102.7,0.974,4.79

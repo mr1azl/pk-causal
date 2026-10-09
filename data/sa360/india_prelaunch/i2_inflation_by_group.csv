@@ -1,0 +1,9 @@
+dest_group,ledger_rows,ledger_revenue,zero_revenue_rows,zero_revenue_pct,all_conversions,all_conversions_value,cross_device,cross_device_pct,all_over_ledger,same_device_over_ledger,flag_above_3x
+Europe excl UK+IE,49,38029.85,2,4.08,310.0,399049.71,256.0,82.58,6.327,1.102,yes
+North America,58,71346.56,2,3.45,264.0,372729.99,200.0,75.76,4.552,1.103,yes
+GCC and Middle East,5,11255.18,0,0.0,226.0,349328.88,221.0,97.79,45.2,1.0,yes
+UK+IE,24,12821.56,0,0.0,130.0,171604.03,103.0,79.23,5.417,1.125,yes
+Africa,2,757.05,0,0.0,48.0,75801.89,46.0,95.83,24.0,1.0,yes
+Oceania,1,4561.49,0,0.0,31.0,35644.73,30.0,96.77,31.0,1.0,yes
+other,1,2695.82,0,0.0,13.0,27353.93,12.0,92.31,13.0,1.0,yes
+Performance Max (not a search portfolio),103,114291.03,3,,239.0,291016.44,92.0,38.49,2.32,1.427,no

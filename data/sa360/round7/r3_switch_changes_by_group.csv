@@ -1,0 +1,107 @@
+date,label,segment,resource_type,changes
+2026-08-19,19 Aug,long-haul,AD_GROUP_AD,27
+2026-08-19,19 Aug,long-haul,CAMPAIGN_BUDGET,35
+2026-08-19,19 Aug,long-haul,CAMPAIGN_ASSET,4
+2026-08-19,19 Aug,long-haul,CAMPAIGN_SHARED_SET,1
+2026-08-19,19 Aug,long-haul,CAMPAIGN_CRITERION,27
+2026-08-19,19 Aug,UK+IE rest,CAMPAIGN_BUDGET,21
+2026-08-19,19 Aug,UK+IE rest,AD_GROUP_AD,15
+2026-08-19,19 Aug,UK+IE rest,CAMPAIGN_SHARED_SET,1
+2026-08-19,19 Aug,UK+IE rest,CAMPAIGN_CRITERION,27
+2026-08-19,19 Aug,UK+IE rest,CAMPAIGN,1
+2026-08-19,19 Aug,regional,AD_GROUP_AD,16
+2026-08-19,19 Aug,regional,CAMPAIGN_ASSET,2
+2026-08-19,19 Aug,regional,CAMPAIGN_BUDGET,2
+2026-08-19,19 Aug,unattributable,ASSET,15
+2026-08-19,19 Aug,GB country (cut 20 Aug),AD_GROUP_AD,1
+2026-08-20,20 Aug budget cut,long-haul,AD_GROUP_CRITERION,1649
+2026-08-20,20 Aug budget cut,long-haul,AD_GROUP_AD,34
+2026-08-20,20 Aug budget cut,long-haul,CAMPAIGN_BUDGET,278
+2026-08-20,20 Aug budget cut,long-haul,CAMPAIGN,278
+2026-08-20,20 Aug budget cut,long-haul,CAMPAIGN_SHARED_SET,72
+2026-08-20,20 Aug budget cut,long-haul,AD_GROUP,3
+2026-08-20,20 Aug budget cut,regional,AD_GROUP_CRITERION,1772
+2026-08-20,20 Aug budget cut,regional,CAMPAIGN_BUDGET,194
+2026-08-20,20 Aug budget cut,regional,CAMPAIGN,195
+2026-08-20,20 Aug budget cut,regional,AD_GROUP_AD,43
+2026-08-20,20 Aug budget cut,regional,CAMPAIGN_SHARED_SET,4
+2026-08-20,20 Aug budget cut,UK+IE rest,AD_GROUP_CRITERION,256
+2026-08-20,20 Aug budget cut,UK+IE rest,CAMPAIGN_SHARED_SET,40
+2026-08-20,20 Aug budget cut,UK+IE rest,CAMPAIGN_BUDGET,68
+2026-08-20,20 Aug budget cut,UK+IE rest,CAMPAIGN,68
+2026-08-20,20 Aug budget cut,UK+IE rest,AD_GROUP_AD,10
+2026-08-20,20 Aug budget cut,UK+IE rest,AD_GROUP,3
+2026-08-20,20 Aug budget cut,UK+IE (outside brief list),AD_GROUP_CRITERION,58
+2026-08-20,20 Aug budget cut,GB country (cut 20 Aug),CAMPAIGN_BUDGET,4
+2026-08-20,20 Aug budget cut,GB country (cut 20 Aug),CAMPAIGN_SHARED_SET,4
+2026-08-20,20 Aug budget cut,GB country (cut 20 Aug),CAMPAIGN,2
+2026-08-20,20 Aug budget cut,GB country (cut 20 Aug),AD_GROUP_AD,3
+2026-08-20,20 Aug budget cut,GB country (cut 20 Aug),AD_GROUP_CRITERION,1
+2026-08-20,20 Aug budget cut,none,CAMPAIGN,1
+2026-08-20,20 Aug budget cut,none,AD_GROUP_CRITERION,1
+2026-08-20,20 Aug budget cut,none,CAMPAIGN_BUDGET,1
+2026-08-20,20 Aug budget cut,none,AD_GROUP_AD,1
+2026-09-02,2 Sep switch,long-haul,CAMPAIGN_BUDGET,274
+2026-09-02,2 Sep switch,long-haul,CAMPAIGN_SHARED_SET,56
+2026-09-02,2 Sep switch,long-haul,AD_GROUP_AD,26
+2026-09-02,2 Sep switch,long-haul,CAMPAIGN,30
+2026-09-02,2 Sep switch,long-haul,AD_GROUP_CRITERION,1
+2026-09-02,2 Sep switch,regional,CAMPAIGN_BUDGET,195
+2026-09-02,2 Sep switch,regional,CAMPAIGN_SHARED_SET,32
+2026-09-02,2 Sep switch,regional,AD_GROUP_AD,40
+2026-09-02,2 Sep switch,regional,CAMPAIGN,12
+2026-09-02,2 Sep switch,regional,AD_GROUP_CRITERION,1
+2026-09-02,2 Sep switch,UK+IE rest,AD_GROUP_CRITERION,1
+2026-09-02,2 Sep switch,UK+IE rest,CAMPAIGN_BUDGET,68
+2026-09-02,2 Sep switch,UK+IE rest,AD_GROUP_AD,7
+2026-09-02,2 Sep switch,UK+IE rest,CAMPAIGN_SHARED_SET,24
+2026-09-02,2 Sep switch,UK+IE rest,CAMPAIGN,2
+2026-09-02,2 Sep switch,GB country (cut 20 Aug),AD_GROUP_AD,1
+2026-09-02,2 Sep switch,GB country (cut 20 Aug),CAMPAIGN_BUDGET,2
+2026-09-02,2 Sep switch,UK+IE (outside brief list),CAMPAIGN,2
+2026-09-03,3 Sep switch,long-haul,AD_GROUP_CRITERION,1603
+2026-09-03,3 Sep switch,long-haul,CAMPAIGN_BUDGET,282
+2026-09-03,3 Sep switch,long-haul,CAMPAIGN,278
+2026-09-03,3 Sep switch,long-haul,CAMPAIGN_SHARED_SET,500
+2026-09-03,3 Sep switch,long-haul,AD_GROUP_AD,9
+2026-09-03,3 Sep switch,long-haul,CAMPAIGN_ASSET,2
+2026-09-03,3 Sep switch,regional,AD_GROUP_CRITERION,1482
+2026-09-03,3 Sep switch,regional,CAMPAIGN_SHARED_SET,358
+2026-09-03,3 Sep switch,regional,CAMPAIGN_BUDGET,195
+2026-09-03,3 Sep switch,regional,CAMPAIGN,195
+2026-09-03,3 Sep switch,regional,AD_GROUP_AD,9
+2026-09-03,3 Sep switch,regional,CAMPAIGN_ASSET,2
+2026-09-03,3 Sep switch,UK+IE rest,AD_GROUP_CRITERION,156
+2026-09-03,3 Sep switch,UK+IE rest,CAMPAIGN_SHARED_SET,112
+2026-09-03,3 Sep switch,UK+IE rest,CAMPAIGN_BUDGET,68
+2026-09-03,3 Sep switch,UK+IE rest,CAMPAIGN,68
+2026-09-03,3 Sep switch,UK+IE rest,AD_GROUP_AD,3
+2026-09-03,3 Sep switch,UK+IE (outside brief list),AD_GROUP_CRITERION,59
+2026-09-03,3 Sep switch,GB country (cut 20 Aug),CAMPAIGN_SHARED_SET,4
+2026-09-03,3 Sep switch,GB country (cut 20 Aug),CAMPAIGN_BUDGET,2
+2026-09-03,3 Sep switch,GB country (cut 20 Aug),CAMPAIGN,2
+2026-09-03,3 Sep switch,GB country (cut 20 Aug),AD_GROUP_AD,2
+2026-09-03,3 Sep switch,unattributable,CAMPAIGN_BUDGET,3
+2026-09-03,3 Sep switch,none,CAMPAIGN_BUDGET,1
+2026-09-03,3 Sep switch,none,AD_GROUP_AD,1
+2026-09-03,3 Sep switch,none,CAMPAIGN,1
+2026-09-17,17 Sep,long-haul,CAMPAIGN_ASSET,2
+2026-09-17,17 Sep,long-haul,CAMPAIGN_BUDGET,278
+2026-09-17,17 Sep,long-haul,AD_GROUP_CRITERION,3
+2026-09-17,17 Sep,long-haul,AD_GROUP_AD,3
+2026-09-17,17 Sep,long-haul,CAMPAIGN,278
+2026-09-17,17 Sep,regional,AD_GROUP_CRITERION,6
+2026-09-17,17 Sep,regional,CAMPAIGN_BUDGET,195
+2026-09-17,17 Sep,regional,AD_GROUP_AD,12
+2026-09-17,17 Sep,regional,CAMPAIGN,195
+2026-09-17,17 Sep,UK+IE rest,CAMPAIGN_ASSET,2
+2026-09-17,17 Sep,UK+IE rest,CAMPAIGN_BUDGET,68
+2026-09-17,17 Sep,UK+IE rest,AD_GROUP_CRITERION,1
+2026-09-17,17 Sep,UK+IE rest,AD_GROUP_AD,2
+2026-09-17,17 Sep,UK+IE rest,CAMPAIGN,68
+2026-09-17,17 Sep,GB country (cut 20 Aug),CAMPAIGN_BUDGET,2
+2026-09-17,17 Sep,GB country (cut 20 Aug),AD_GROUP_AD,1
+2026-09-17,17 Sep,GB country (cut 20 Aug),CAMPAIGN,2
+2026-09-17,17 Sep,none,AD_GROUP_AD,1
+2026-09-17,17 Sep,none,CAMPAIGN_BUDGET,1
+2026-09-17,17 Sep,none,CAMPAIGN,1
