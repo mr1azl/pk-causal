@@ -36,8 +36,8 @@ Round 7 reads the PK account through the Google Ads API, which gives what SA360 
    - With a target, it decides everything. A target must come from the realised return on whichever signal the
      portfolio reads, never from booking economics.
 4. **An automated process rewrites budgets daily.** `CAMPAIGN_BUDGET/UPDATE` events appear on every one of the 24
-   days the `change_event` pull actually covered, via Google Ads scripts and an internal tool. The 5 missing days
-   are the Tuesdays the weekly query windows skipped (see item 5), not quiet days. This is the most important
+   days the `change_event` pull actually covered, via Google Ads scripts and an internal tool. The 5 missing days (15, 22, 29 Sep, 6 and 7 Oct)
+   are the last days of the query windows, which the date filter skipped (see item 5), not quiet days. This is the most important
    operational finding: any budget set for a test (including the GB switchback in `13`) can be overwritten.
 
    Who owns this automation, and what it optimises for, is now an open question for PK.
